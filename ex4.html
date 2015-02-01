@@ -1,15 +1,17 @@
 <html>
 
-
 <head>
 
   <title>Tutorial Exercise 4</title>
 
 </head>
 
-
-
-
+ <style>
+   body { background-image : url("http://blogfiles.naver.net/20150201_187/drivesol_1422789780016gfVwj_PNG/wb3.png");
+      background-position : 50% 50% ;
+      background-attachment : fixed ;
+      background-repeat : no-repeat; }
+   </style>
 
 <body>
 <font face="Arial" size="5">
@@ -31,7 +33,15 @@ The tool in CDH best suited for quick analytics on object relationships is Apach
 You can compose a Spark job to do this work and give you insight on product relationships.
 </p>
 
-coding</br>
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
+
+spark-shell --jars /usr/lib/avro/avro-mapred.jar \
+--conf spark.serializer=org.apache.spark.serializer.KryoSerializer
+</td>
+</tr></table>
+
 image1</br>
 image2</br>
 
@@ -40,21 +50,130 @@ Note: After a few seconds, you should see the spark shell. If you do not, you ma
 
 Once you have the scala> prompt, paste the following code, and hit enter.</br></br>
 
-coding</br>
-coding</br>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
+
+// First we're going to import the classes we need and open some of the files<br>
+// we imported from our relational database into Hadoop with Sqoop
+</td>
+</tr></table>
+
+<br><br>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
+
+import org.apache.avro.generic.GenericRecord
+import org.apache.avro.mapred.{AvroInputFormat, AvroWrapper}
+import org.apache.hadoop.io.NullWritable
+
+val warehouse = "hdfs://quickstart.cloudera/user/hive/warehouse/"
+
+val order_items_path = warehouse + "order_items"
+val order_items = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](order_items_path)
+
+val products_path = warehouse + "products"
+val products = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](products_path)
+</td>
+</tr></table>
+
+
+
 image3</br>
 image4</br>
 image5</br></br>
 
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
 
 
-coding</br>
-coding</br>
+// Next, we extract the fields from order_items and products that we care about<br>
+// and get a list of every product, its name and quantity, grouped by order
+</td>
+</tr></table>
+
+<br><br>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
+
+
+val orders = order_items.map { x => (
+    x._1.datum.get("order_item_product_id"),
+    (x._1.datum.get("order_item_order_id"), x._1.datum.get("order_item_quantity")))
+}.join(
+  products.map { x => (
+    x._1.datum.get("product_id"),
+    (x._1.datum.get("product_name")))
+  }
+).map(x => (
+    scala.Int.unbox(x._2._1._1), // order_id
+    (
+        scala.Int.unbox(x._2._1._2), // quantity
+        x._2._2.toString // product_name
+    )
+)).groupByKey()
+</td>
+</tr></table>
+
+<br><br>
+
 image6</br></br>
 
 
-coding</br>
-coding</br></br>
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
+
+
+// Finally, we tally how many times each combination of products appears<br>
+// together in an order, and print the 10 most common combinations.
+
+
+</td>
+
+
+<br><br>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
+
+
+val cooccurrences = orders.map(order =>
+  (
+    order._1,
+    order._2.toList.combinations(2).map(order_pair =>
+        (
+            if (order_pair(0)._2 < order_pair(1)._2) (order_pair(0)._2, order_pair(1)._2) else (order_pair(1)._2, order_pair(0)._2),
+            order_pair(0)._1 * order_pair(1)._1
+        )
+    )
+  )
+)
+val combos = cooccurrences.flatMap(x => x._2).reduceByKey((a, b) => a + b)
+val mostCommon = combos.map(x => (x._2, x._1)).sortByKey(false).take(10)
+
+println(mostCommon.deep.mkString("\n"))
+
+
+
+</td>
+
+
+<br><br>
+
+
+
+
+
 
 * Note : You have to press "Enter" button at the end of command to execute.
 
