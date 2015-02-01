@@ -1,91 +1,169 @@
-<p><font face="±¼¸²" size="3">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutorial Exercise 2</title>
+</head>
 
-</font></p><p style="margin: 0cm 0cm 10pt;"><b style="mso-bidi-font-weight: normal;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 15pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Tutorial
-Exercise 2</span></b></p><p><font face="±¼¸²" size="3">
+<body>
+  <p><font face="±¼¸²" size="3"></font></p>
+  <p style="margin: 0cm 0cm 15pt;">
+  <b style="mso-bidi-font-weight: normal;">
+  <span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 15pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
 
-</font><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>You¡¯ll use Hue. Hue is
-Graphical user interface for users of the cluster. </span></p><p><br></p><p>[photo] ex2_1</p><p><br></p><p><br></p><p></p><font face="±¼¸²" size="3"><p>
+Tutorial Exercise 2
+</span></b></p>
 
-<!--StartFragment--></p><p class="1" style="line-height: 160%; margin-bottom: 0pt; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="color: rgb(0, 117, 200); letter-spacing: 0pt; font-family: ¸¼Àº °íµñ; font-size: 12pt; font-weight: bold; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Note! </span></p><p class="1" style="line-height: 160%; margin-bottom: 0pt; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="color: rgb(0, 117, 200); letter-spacing: 0pt; font-family: ¸¼Àº °íµñ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;"><span style="color: rgb(0, 117, 200);">In our example we use Hive for DDL statements and Impala for querying. This fits the notion that Hive is better for flexible batch jobs (like ETL), but Impala is better for interactive querying, at scale</span>.</span></p><p><br></p><p>&nbsp;</p></font><p></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Let¡¯s start Hue! </span></p><p><font face="±¼¸²" size="3">
-</font><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Click ¡®Fire Fox Icon¡¯.</span></p><p><font face="±¼¸²" size="3">
 
-<br></font></p><p>[photo] ex2_2</p><font face="±¼¸²" size="3"><p>
+<p><font face="±¼¸²" size="3"></font>
+<span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>
 
-<br></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>It¡¯s ¡®quickstart.cloudera¡¯ web page.</span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Click ¡®Hue¡¯. Then Hue will be started.</span></p><p><strong>
+You¡¯ll use Hue. <br>
+Hue is Graphical user interface for users of the cluster. </span></p>
 
-</strong>[photo] ex2_3</p><p>
+<p><br></p>
+<p>[image] ex2_1</p>
+<p><br></p><p></p>
 
-<br></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-font-kerning: 0pt;'>You'll use Hue to run some SQL queries
-against the data. </span></p><p>
 
-<span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'>Hue
-provides a web-based interface for many of the tools in CDH.</span></p></font><p><br></p><p>[photo] ex2_4</p><p><br></p><p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'>In the QuickStart VM,
-the administrator username for Hue is 'cloudera' and the password is 'cloudera'.</span></p><p><br></p><p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><font size="2">[photo] ex2_5</font></span></p><p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><font size="2"><br></font></span></p><p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><font size="2"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>Once you are inside of Hue, click of Query Editors,
-and open the Impala Query Editor.</span></font></span></p><p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><font size="2"><br></font></span></p><p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><font size="2"><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><font size="2">[photo] ex2_6</font></span></font></span></p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><p><br></p><p><br></p><font size="2"><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>You'll notice that the tables that
-we created in Hive are not available in Impala yet. </span></p><p><font face="±¼¸²" size="3">
+<font face="±¼¸²" size="3"><p>
+<!--StartFragment--></p>
+<p class="1" style="line-height: 115%; margin-bottom: 0pt; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">
+<span lang="EN-US" style="color: rgb(0, 117, 200); letter-spacing: 0pt; font-family: ¸¼Àº °íµñ; font-size: 10pt; font-weight: normal; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">
 
-<br></font></p><p style="margin: 0cm 0cm 0pt;"><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>This is because we created them
+Note! <br>
+In our example we use Hive for DDL statements and Impala for querying. This fits the notion that Hive is better for flexible batch jobs (like ETL), but Impala is better for interactive querying, at scale.</span></p>
+
+<p><br></p><p>&nbsp;</p></font>
+
+<p></p>
+<p style="margin: 0cm 0cm 10pt;">
+<span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+
+Let¡¯s start Hue! <br>
+Click ¡®Fire Fox Icon¡¯.
+</span>
+
+<p><font face="±¼¸²" size="3"><br></font></p>
+
+<p>[image] ex2_2</p>
+
+
+
+<font face="±¼¸²" size="3"><p><br></p>
+
+<p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+
+It¡¯s ¡®quickstart.cloudera¡¯ web page.<br>
+Click ¡®Hue¡¯. <br>
+Then Hue will be started.</span></p>
+
+
+<br>
+<p>[image] ex2_3</p><p><br></p>
+
+
+<p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-font-kerning: 0pt;'>
+
+You'll use Hue to run some SQL queries
+against the data. <br>
+Hue provides a web-based interface for many of the tools in CDH.</span></p></font>
+<p><br></p>
+
+<p>[image] ex2_4</p><p><br></p>
+
+<p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'>
+
+In the QuickStart VM, 
+the administrator username for Hue is 'cloudera' and the password is 'cloudera'.</span></p><br>
+
+<p>[image] ex2_5</p><p><br></p>
+
+<p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'>
+<font size="2"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>
+
+Once you are inside of Hue, click of Query Editors,
+and open the Impala Query Editor.</span></font>
+</span></p><br>
+
+
+<p>[image] ex2_6</p><p><br></p>
+
+
+<span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+
+You'll notice that the tables that
+we created in Hive are not available in Impala yet. <br>
+This is because we created them
 outside of Impala, and Impala does not constantly check for changes to the
-table metadata. </span></p><p style="margin: 0cm 0cm 0pt;"><br></p><p style="margin: 0cm 0cm 0pt;"><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><br></span></p><p><font face="±¼¸²" size="3"><strong>
+table metadata.</font></p></span><br>
 
-</strong>[photo] ex2_7</font></p><font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial">To get our tables to display, paste
-the following into the query editor and hit Execute.</font></span></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial"><br></font></span></p><p><span lang="EN-US" style='color: rgb(255, 0, 0); font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial">invalidate metadata</font></span></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial"><br></font></span></p><p><strong>
 
-</strong>[photo] ex2_8</p></font><p><br></p></span><p><font face="±¼¸²" size="3">
+<p>[image] ex2_7</p><p><br></p>
 
-<br></font></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-bidi-font-family: Arial;'>"invalidate metadata"
-statement</span></p><p><font face="±¼¸²" size="3">
 
-</font><span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-bidi-font-family: Arial;'>: Marks the metadata for one or all tables as stale.
+<font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+<font face="Arial">
+
+To get our tables to display, paste the following into the query editor and hit Execute.
+
+</font></span></p>
+
+<p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial"><br></font></span></p><p><span lang="EN-US" style='color: rgb(255, 0, 0); font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial">
+
+invalidate metadata</font></span></p><br>
+
+
+<p>[image] ex2_8</p><p><br></p>
+
+
+
+<p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-bidi-font-family: Arial;'>
+
+"invalidate metadata" statement</span></p>
+
+<span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-bidi-font-family: Arial;'>
+
+: Marks the metadata for one or all tables as stale.<br>
 Required after a table is created through the Hive shell, before the table is
-available for Impala queries. The next time the current Impala node performs a
+available for Impala queries.<br>
+The next time the current Impala node performs a
 query against a table whose metadata is invalidated, Impala reloads the
-associated metadata before the query proceeds. This is a relatively expensive
-operation compared to the incremental metadata update done by the REFRESH
+associated metadata before the query proceeds.<br>
+This is a relatively expensive operation compared to the incremental metadata update done by the REFRESH
 statement, so in the common scenario of adding new data files to an existing
-table, prefer REFRESH rather than INVALIDATE METADATA. If you are not familiar
-with the way Impala uses metadata and how it shares the same metastore database
-as Hive, see Overview of Impala Metadata and the Metastore for background information.</span></p></font><p><br></p><p><font face="±¼¸²" size="3">
+table, prefer REFRESH rather than INVALIDATE METADATA.<br>
+If you are not familiar with the way Impala uses metadata and how it shares the same metastore database
+as Hive, see Overview of Impala Metadata and the Metastore for background information.</span></p></font>
 
-<br></font></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Now, you click on the "Refresh Table List" icon.</span></p><p><font face="±¼¸²" size="3"><strong>
 
-</strong>[photo] ex2_9</font></p><font face="±¼¸²" size="3"><p>
+<font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+<font face="Arial">
 
-<br></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>You will see your new tables.</span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3">[photo] ex2_10</font></span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'>Copy and paste or type in the following standard
-SQL example queries for calculating total revenue per product and showing the
-top 10 revenue generating products : </span></font></span></p><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>-- Most popular
-product categories </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>select
-c.category_name, count(order_item_quantity) as count </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>from order_items
-oi </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>inner join
-products p on oi.order_item_product_id = p.product_id </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>inner join
-categories c on c.category_id = p.product_category_id </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>group by
-c.category_name </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>order by count
-desc </span></p><p style="margin: 0cm 0cm 10pt;">
+Now, you click on the "Refresh Table List" icon.
 
-<span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-bidi-font-family: Arial;'>limit 10;</span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>Hit Execute.</span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3">[photo] ex2_11</font></span></span></p><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>You should see results of the following form :</span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3">[photo] ex2_12</font></span></span></span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'>Clear out the previous query. </span></font></span></span></span></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3">[photo] ex2_13</font></span></span></span></span></font></span></span></span></p><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Copy and paste or type in the
-following standard SQL example queries :</span></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>-- top 10 revenue
-generating products </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>select
-p.product_id, p.product_name, r.revenue </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>from products p
-inner join </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>(select
-oi.order_item_product_id, sum(cast(oi.order_item_subtotal as float)) as revenue
-</span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>from order_items
-oi inner join orders o </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>on oi.order_item_order_id
-= o.order_id </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>where
-o.order_status &lt;&gt; 'CANCELED' </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>and
-o.order_status &lt;&gt; 'SUSPECTED_FRAUD' </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>group by
-order_item_product_id) r </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>on p.product_id =
-r.order_item_product_id </span></p><p style="margin: 0cm 0cm 0pt; text-align: justify; -ms-text-justify: inter-ideograph;"><span lang="EN-US" style='color: rgb(255, 0, 0); font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt;'>order by
-r.revenue desc </span></p><p style="margin: 0cm 0cm 10pt;"><font face="±¼¸²" size="3">
+</font></span></p><br>
 
-</font><span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-bidi-font-family: Arial;'>limit 10;</span></p><p style="margin: 0cm 0cm 10pt;"><br></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3">[photo] ex2_14</font></span></span></span></span></font></span></span></span></p><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>You should see results similar to this : </span></p><p style="margin: 0cm 0cm 10pt;"><font face="±¼¸²" size="3"><strong>
+<p>[image] ex2_9</p><p><br></p>
 
-</strong><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3">[photo] ex2_15</font></span></span></span></span></font></span></span></span></font></p><p style="margin: 0cm 0cm 10pt;"><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="±¼¸²" size="3"><span lang="EN-US" style='line-height: 115%; font-family: "¸¼Àº °íµñ"; font-size: 11pt; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-ascii-theme-font: minor-latin; mso-hansi-theme-font: minor-latin; mso-bidi-font-family: "Times New Roman"; mso-bidi-theme-font: minor-bidi;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 9pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>If one of these steps fails, please reach out to
-our Cloudera Live Forum and get help. Otherwise continue.</span></span></span></span></span></font></span></span></span></font></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><font face="±¼¸²" size="3">
 
-<br></font></p><p style="margin: 0cm 0cm 0pt;"><b><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>CONCLUSION </span></b></p><p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>Now you have learned how to query Hive tables using Impala and
-that you can use regular interfaces and tools (such as SQL) within a Hadoop
-environment as well. </span></p><p style="margin: 0cm 0cm 10pt;"><font face="±¼¸²" size="3">
+<font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+<font face="Arial">
 
-</font><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>The idea here being that
-you can do the same reports you usually do, but where the architecture of
-Hadoop vs traditional systems provides much larger scale and flexibility.</span></p></span></span><p style="margin: 0cm 0cm 10pt;"><br></p></font><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p><p style="margin: 0cm 0cm 10pt;"><br></p></font><p style="margin: 0cm 0cm 10pt;"><br></p><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></font><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p></font><p style="margin: 0cm 0cm 10pt;"><br></p></span><p style="margin: 0cm 0cm 10pt;"><br></p><p style="margin: 0cm 0cm 10pt;"><br></p></font><p style="margin: 0cm 0cm 10pt;"><br></p><p style="margin: 0cm 0cm 10pt;">&nbsp;</p></span><p style="margin: 0cm 0cm 10pt;"><br></p>
+You will see your new tables.</span></font></p><br>
+
+<p>[image] ex2_10</p><p><br></p>
+
+<font face="±¼¸²" size="3"><p><br></p>
+<p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
+<font face="Arial">
+
+Copy and paste or type in the following standard
+SQL example queries for calculating total revenue per product and showing the top
+ </span></font></p>
+
+
+
+
+</body>
+
+</html>
