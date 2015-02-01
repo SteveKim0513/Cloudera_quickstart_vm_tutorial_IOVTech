@@ -116,10 +116,14 @@
 		If you were doing this on your own, you would <span style='color:red'>generate
 		the configs </span>by executing the following command: </span></p>
 		<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='font-family:"바탕","serif";color:#7030A0'>$ solrctl --zk
-		quickstart.cloudera:2181/solr instancedir --generate solr_configs</span></p>
+		style='font-family:"Arial","serif";color:#7030A0'>
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ solrctl --zk
+		quickstart.cloudera:2181/solr instancedir --generate solr_configs</span></tr></table></p>
 		<p class=MsoNormal style='text-align:center'><span lang=EN-US>Ref)
-		</span><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'>zk </span><span
+		</span><span lang=EN-US style='font-family:"Arial","serif";color:#7030A0'>zk </span><span
 		lang=EN-US>: ZooKeeper</span></p>
 		<p class=MsoNormal><b><span lang=EN-US>You don't need to do this for this
 		tutorial.</span></b><span lang=EN-US> We have already generated the
@@ -143,22 +147,33 @@
 		<p class=MsoNormal>&nbsp;</p>
 		<p class=MsoNormal><b><span lang=EN-US>3. Uploading your configuration</span></b></p>
 		<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Move
-		to </span>??span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'>/opt/examples/flume</span><span
-		style='mso-ascii-font-family:"맑�? 고딕";mso-ascii-theme-font:minor-fareast;
-		mso-hansi-font-family:"맑�? 고딕";mso-hansi-theme-font:minor-fareast'>??/span><span
-		lang=EN-US> directory.</span></p>
-		<p class=MsoNormal><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'><span
-		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$ cd /opt/examples/flume</span></p>
+		to directory 'Flume'</span>
+		<p class=MsoNormal><span lang=EN-US style='font-family:"Arial","serif";color:#7030A0'><span
+		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+			
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>
+		<td align="center" valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ cd /opt/examples/flume</span></td>
+		</tr></table></p>
 		<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Creating
 		instance directory.</span></p>
-		<p class=MsoNormal><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'><span
-		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$ solrctl --zk
-		quickstart.cloudera:2181/solr instancedir --create live_logs ./solr_configs</span></p>
+		<p class=MsoNormal><span lang=EN-US style='font-family:"Arial","serif";color:#7030A0'><span
+		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ solrctl --zk
+		quickstart.cloudera:2181/solr instancedir --create live_logs ./solr_configs</span></tr></table></p>
 		<p class=MsoNormal>&nbsp;</p>
 		<p class=MsoNormal><b><span lang=EN-US>4. Creating your collection</span></b></p>
-		<p class=MsoNormal><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'><span
-		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$ solrctl --zk
-		quickstart.cloudera:2181/solr collection --create live_logs -s 1</span></p>
+		<p class=MsoNormal><span lang=EN-US style='font-family:"Arial","serif";color:#7030A0'><span
+		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>		
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ solrctl --zk
+		quickstart.cloudera:2181/solr collection --create live_logs -s 1</span></tr></table></p>
 
 
 
@@ -220,18 +235,32 @@
 		generator for use with sample data. Start the log generator by running the
 		following command </span></p>
 		<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='font-family:"바탕","serif";color:#7030A0'>$ start_logs</span></p>
+		style='font-family:"Arial","serif";color:#7030A0'>
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>		
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		
+		$ start_logs</span></tr></table></p>
 		<p class=MsoNormal><span lang=EN-US>You can verify that the log generator has
 		started by running </span></p>
 		<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='font-family:"바탕","serif";color:#7030A0'>$ tail_logs</span></p>
+		style='font-family:"Arial","serif";color:#7030A0'>
+
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>		
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ tail_logs</span></tr></table></p>
 		<p class=MsoNormal><span lang=EN-US>When you're done watching the logs, you can
 		hit <span style='color:#C00000'>&lt;Ctrl + C&gt;</span> to return to your
 		terminal. </span></p>
 		<p class=MsoNormal><span lang=EN-US>Later, if you want to stop the log
 		generator you can: </span></p>
 		<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='font-family:"바탕","serif";color:#7030A0'>$ stop_logs</span></p>
+		style='font-family:"Arial","serif";color:#7030A0'>
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>		
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ stop_logs</span></tr></table></p>
 
 		<p class=MsoNormal style='text-align:center'><span lang=EN-US>You
 		can see like this results.</span></p>
@@ -266,11 +295,13 @@
 		<p class=MsoNormal><span lang=EN-US>Start the Flume agent by executing the
 		following command to get debugging log : </span></p>
 		<p class=MsoNormal><span lang=EN-US
-		style='font-family:"바탕","serif";color:#7030A0'>$ flume-ng agent --conf/opt/examples/flume/conf --conf-file /opt/examples/flume/conf/flume.conf \</span></p>
+		style='font-family:"Arial","serif";color:#7030A0'>
+		<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+		<tr>		
+		<td align="center" valign="center" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 920pt; height: 20pt;">
+		$ flume-ng agent --conf/opt/examples/flume/conf --conf-file /opt/examples/flume/conf/flume.conf \</br>--name agent1
+		-Dflume.root.logger=DEBUG,INFO,console</span></tr></table></p>
 
-		<p class=MsoNormal style='text-align:left;text-indent:40.0pt'><span
-		lang=EN-US style='font-family:"바탕","serif";color:#7030A0'>--name agent1
-		-Dflume.root.logger=DEBUG,INFO,console</span></p>
 		<p class=MsoNormal><span lang=EN-US>This will start running the Flume agent in
 		the foreground. Once it has started, and is processing log records, </span></p>
 		<p class=MsoNormal><span lang=EN-US>Now you can go back to the Hue UI (refer
