@@ -1,8 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- saved from url=(0052)http://www.verypdf.com/ -->
-<html>
-<head>
-<title>Tutorial Exercise3</title>
+<html><head><!-- saved from url=(0052)http://www.verypdf.com/ --><title>Tutorial Exercise3</title>
+
+
+
+
 
 <style>
 <!-- 
@@ -13,7 +14,7 @@ A:active {text-decoration: red}
 A:hover {text-decoration: underline; color:red}
 -->
 </style>
-<script TYPE="text/javascript"> 
+<script type="text/javascript"> 
 <!-- hide 
 function killerrors()
 { 
@@ -31,11 +32,9 @@ window.onerror = killerrors;
 .ft4{font-style:normal;font-weight:bold;font-size:20px;font-family:Times New Roman;color:#000000;}
 .ft5{font-style:normal;font-weight:bold;font-size:13px;font-family:Times New Roman;color:#FF0000;}
 -->
-</style>
-</head>
-<body vlink="#FFFFFF" link="#FFFFFF" bgcolor="#ffffff">
+</style></head><body bgcolor="#ffffff" link="#ffffff" vlink="#ffffff">
 
-<script TYPE="text/javascript">
+<script type="text/javascript">
 var currentpos,timer; 
 function initialize() 
 { 
@@ -56,35 +55,35 @@ document.ondblclick=initialize
 </script>
 
 <p><span class="ft0">Tutorial Exercise3 </span></p>
-<br></br>
+<br><br>
 <p><span class="ft1">Correlate Structured Data with Unstructured Data</span></p>
-<br></br>
-<br><span class="ft2"> Since you are a pretty smart data person, you realize another interesting business question</span></br>
-<br><span class="ft2"> would be: are the most viewed products also the most sold?(or for other scenarios, the</span></br>
-<br><span class="ft2"> most searched for, the most chatted about...) Since Hadoop can store unstructured and</span></br>
-<br><span class="ft2"> semi-structured data alongside structured data without remodelling an entire database, you</span></br>
-<br><span class="ft2"> can just as well ingest, store and process web log events. Let's find out what site visitors</span></br>
+<br><br>
+<br><span class="ft2"> Since you are a pretty smart data person, you realize another interesting business question</span><br>
+<br><span class="ft2"> would be: are the most viewed products also the most sold?(or for other scenarios, the</span><br>
+<br><span class="ft2"> most searched for, the most chatted about...) Since Hadoop can store unstructured and</span><br>
+<br><span class="ft2"> semi-structured data alongside structured data without remodelling an entire database, you</span><br>
+<br><span class="ft2"> can just as well ingest, store and process web log events. Let's find out what site visitors</span><br>
 <p><span class="ft2"> have actually viewed the most.</span></p>
-<br><span class="ft2"> For this, you need the web clickstream data. The most common way to ingest web</span></br>
-<br><span class="ft2"> clickstream is to use Flume. Flume is a scalable real-time ingest framework that allows you</span></br>
-<br><span class="ft2"> to route, filter, aggregate, and do °∞mini-operations°± on data on its way in to the scalable</span></br>
+<br><span class="ft2"> For this, you need the web clickstream data. The most common way to ingest web</span><br>
+<br><span class="ft2"> clickstream is to use Flume. Flume is a scalable real-time ingest framework that allows you</span><br>
+<br><span class="ft2"> to route, filter, aggregate, and do °�&#710;&#382;mini-operations°± on data on its way in to the scalable</span><br>
 <p><span class="ft2"> processing platform.</span></p>
-<br><span class="ft2"> In Exercise 4, later in this tutorial, you can explore a Flume configuration example, to use</span></br>
-<br><span class="ft2"> for real-time ingest and transformation of our sample web clickstream data. However, for</span></br>
-<br><span class="ft2"> the sake of tutorial-time, in this step, we will not have the patience to wait for three days</span></br>
-<br><span class="ft2"> of data to be ingested. Instead, we prepared a web clickstream data set (just pretend</span></br>
+<br><span class="ft2"> In Exercise 4, later in this tutorial, you can explore a Flume configuration example, to use</span><br>
+<br><span class="ft2"> for real-time ingest and transformation of our sample web clickstream data. However, for</span><br>
+<br><span class="ft2"> the sake of tutorial-time, in this step, we will not have the patience to wait for three days</span><br>
+<br><span class="ft2"> of data to be ingested. Instead, we prepared a web clickstream data set (just pretend</span><br>
 <p><span class="ft2"> you fast forwarded three days) that you can bulk upload into HDFS directly.</span></p>
-<br></br>
-<br><span class="ft4">Bulk Upload Data</span></br>
-<br><span class="ft2">For convenience, we have loaded a sample (about 20MM lines) of one month's worth of access log data into</span></br>
-<br><span class="ft2">/opt/examples/log_data/access.log.2.</span></br>
-<br><span class="ft2">Let's move this data from the local filesystem, into HDFS.</span></br>
+<br><br>
+<br><span class="ft4">Bulk Upload Data</span><br>
+<br><span class="ft2">For convenience, we have loaded a sample (about 20MM lines) of one month's worth of access log data into</span><br>
+<br><span class="ft2">/opt/examples/log_data/access.log.2.</span><br>
+<br><span class="ft2">Let's move this data from the local filesystem, into HDFS.</span><br>
 <p><span class="ft2">Go back to your terminal and execute the following commands as root from your Master Node.</span></p>
-<div style="position:absolute;top:180;left:500">
+<div style="position: absolute; top: 179px; left: 681px;">
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 160pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 160pt; height: 20pt;" valign="top">
 
 <span class="ft3"> Good to Know</span><p>
 <span class="ft2"> 
@@ -119,66 +118,66 @@ more robust production<br>
 deployment, as it does not<br>
 depend on file appends.</span>
 
-</td>
-</tr></table></div>
+</p></td>
+</tr></tbody></table></div>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 902px; height: 36px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 <span class="ft2">sudo -u hdfs hadoop fs -mkdir /user/hive/warehouse/original_access_logs </span><br>
 <span class="ft2">sudo -u hdfs hadoop fs -copyFromLocal /opt/examples/log_files/access.log.2 /user/hive/warehouse/original_access_logs</span>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
 <p><span class="ft2">Verify that your data is in HDFS by executing the following command :</span></p>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 905px; height: 27px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 <span class="ft2">hadoop fs -ls /user/hive/warehouse/original_access_logs</span>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<br><span class="ft2">You should see a result similar to the following :</span></br>
-
-
-
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles10.naver.net/20150201_105/uk2aroha_1422791748387o5oyA_PNG/Ex3_1.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<br><span class="ft2">You should see a result similar to the following :</span><br>
 
 
-<br><span class="ft2">Now you can build a table in Hive (as you did in previous tutorial exercises) and query the data via Impala and Hue. You'll build</span></br>
-<br><span class="ft2">this table in 2 steps. First, you'll take advantage of Hive's flexible SerDes (serializers / deserializers) to parse the logs into individual</span></br>
-<br><span class="ft2">fields using a regular expression. Second, you'll transfer the data from this intermediate table to one that does not require any</span></br>
-<br><span class="ft2">special SerDe. Once the data is in this table, you can query it much faster and more interactively using Impala.</span></br>
+
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles10.naver.net/20150201_105/uk2aroha_1422791748387o5oyA_PNG/Ex3_1.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
+
+
+<br><span class="ft2">Now you can build a table in Hive (as you did in
+previous tutorial exercises) and query the data via Impala and Hue.
+You'll build</span><br>
+<br><span class="ft2">this table in 2 steps. First, you'll take
+advantage of Hive's flexible SerDes (serializers / deserializers) to
+parse the logs into individual</span><br>
+<br><span class="ft2">fields using a regular expression. Second, you'll
+transfer the data from this intermediate table to one that does not
+require any</span><br>
+<br><span class="ft2">special SerDe. Once the data is in this table, you can query it much faster and more interactively using Impala.</span><br>
 <p><span class="ft2">Go back to your terminal, and launch Hive's shell.</span></p>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 908px; height: 27px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
-<span class="ft2">hive></span>
+<span class="ft2">hive&gt;</span>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles10.naver.net/20150201_105/uk2aroha_1422791748387o5oyA_PNG/Ex3_2.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles10.naver.net/20150201_105/uk2aroha_1422791748387o5oyA_PNG/Ex3_2.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">Now paste the following queries into Hive</span></br>
+<br><span class="ft2">Now paste the following queries into Hive</span><br>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 906px; height: 523px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 <span class="ft2">
 
@@ -210,19 +209,19 @@ code2 STRING,<br>
 dash STRING,<br> 
 user_agent STRING)<br> 
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','<br> 
-LOCATION '/user/hive/warehouse/tokenized_access_logs';<p> 
+LOCATION '/user/hive/warehouse/tokenized_access_logs';</p><p> 
 
 ADD JAR /usr/lib/hive/lib/hive-contrib.jar;<br> 
-INSERT OVERWRITE TABLE tokenized_access_logs ®ÈSELECT * ®ÍFROM intermediate_access_logs;</span>
+INSERT OVERWRITE TABLE tokenized_access_logs ®�&#710;SELECT * ®�&#141;FROM intermediate_access_logs;</p></span>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<br></br>
+<br><br>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 906px; height: 238px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 <span class="ft2">
 [comments]<br>
@@ -231,109 +230,103 @@ CREATE EXTERNAL TABLE intermediate_access_logs (<br>
 °§<br>
 °§<br>
 
-ADD <span class="ft5">®Ë</span>JAR /usr/lib/hive/lib/hive-contrib.jar;<br> 
-INSERT OVERWRITE TABLE tokenized_access_logs <span class="ft5">®È</span>SELECT * <span class="ft5">®Í</span>FROM intermediate_access_logs;<p> 
-
-®Á This statements are the codes that creates table and copies data of intermediate_access_logs table to tokenized_access_logs table.<br>
-®Ë JAR(Java Archive) : a pakege file format typically used to aggregate many Java class files and associated metadata and resources(tex, images, etc)into one file to distribute application software for libraries on the Java platform.<br>
-®È SELECT -: Describes the data to be extracted. For example, the column name and the number of records in the table of the table (count ()), the value obtained by adding a column of a table (sum ()) or to specify the data items required users, such as date.<br>
-®Í FROM -: Describes Whether what to query a table of data in the data object</span>
+ADD <span class="ft5">®�&#8249;</span>JAR /usr/lib/hive/lib/hive-contrib.jar;<br> 
+INSERT OVERWRITE TABLE tokenized_access_logs <span class="ft5">®�&#710;</span>SELECT * <span class="ft5">®�&#141;</span>FROM intermediate_access_logs;<p>
+®�&#129; This statements are the codes that creates table and copies data
+of intermediate_access_logs table to tokenized_access_logs table.<br>
+®�&#8249; JAR(Java Archive) : a pakege file format typically used to
+aggregate many Java class files and associated metadata and
+resources(tex, images, etc)into one file to distribute application
+software for libraries on the Java platform.<br>
+®�&#710; SELECT -: Describes the data to be extracted. For example, the
+column name and the number of records in the table of the table (count
+()), the value obtained by adding a column of a table (sum ()) or to
+specify the data items required users, such as date.<br>
+®�&#141; FROM -: Describes Whether what to query a table of data in the data object</p></span>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<br><span class="ft2">Result:</span></br>
+<br><span class="ft2">Result:</span><br>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles7.naver.net/20150201_6/uk2aroha_1422791749178U6iaG_PNG/Ex3_3.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></br>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles7.naver.net/20150201_6/uk2aroha_1422791749178U6iaG_PNG/Ex3_3.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span><br>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles9.naver.net/20150201_8/uk2aroha_1422791749695vxmXd_PNG/Ex3_4.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+</p><p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles9.naver.net/20150201_8/uk2aroha_1422791749695vxmXd_PNG/Ex3_4.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">Put "exit;" in terminal.</span></br>
+<br><span class="ft2">Put "exit;" in terminal.</span><br>
 
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles8.naver.net/20150201_231/uk2aroha_1422791750093XJEUL_PNG/Ex3_5.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles8.naver.net/20150201_231/uk2aroha_1422791750093XJEUL_PNG/Ex3_5.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">Now invalidate the metadata in the Impala Query Editor, as you did in an earlier exercise.</span></br>
+<br><span class="ft2">Now invalidate the metadata in the Impala Query Editor, as you did in an earlier exercise.</span><br>
 <p><span class="ft2">Now you should see the two new external tables in the default database. Paste the following query into the Query Editor</span></p>
-<br><span class="ft2">Delete if you still have a query that was run previously.</span></br>
+<br><span class="ft2">Delete if you still have a query that was run previously.</span><br>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles12.naver.net/20150201_59/uk2aroha_1422791750462I21Yq_PNG/Ex3_6.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles12.naver.net/20150201_59/uk2aroha_1422791750462I21Yq_PNG/Ex3_6.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">After the refresh, enter the following query</span></br>
+<br><span class="ft2">After the refresh, enter the following query</span><br>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 904px; height: 174px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 <span class="ft2">
 select count(*),url from tokenized_access_logs<br>
-<span class="ft5">®Á</span>where url <span class="ft5">®Ë</span>like '%\/product\/%'<br>
-<span class="ft5">®È</span>group by rul <span class="ft5">®Í</span>order by count(*) desc;<p>
-
-®Á where-:a SQL Data Manipulation Language (DML) statement should only affect rows that meet specified criteria. The criteria are expressed in the form of predicates.<br>
-®Ë like-: find a string fitting a certain description.<br>
-®È group by-: used to project rows having common values into a smaller set of rows<br>
-®Í order by-: identifies which columns to use to sort the resulting data, and in which direction to sort them (ascending or descending). Without an order by clause, the order of rows returned by an SQL query is undefined.<br>
-</span>
+<span class="ft5">®�&#129;</span>where url <span class="ft5">®�&#8249;</span>like '%\/product\/%'<br>
+<span class="ft5">®�&#710;</span>group by rul <span class="ft5">®�&#141;</span>order by count(*) desc;<p>
+®�&#129; where-:a SQL Data Manipulation Language (DML) statement should
+only affect rows that meet specified criteria. The criteria are
+expressed in the form of predicates.<br>
+®�&#8249; like-: find a string fitting a certain description.<br>
+®�&#710; group by-: used to project rows having common values into a smaller set of rows<br>
+®�&#141; order by-: identifies which columns to use to sort the resulting
+data, and in which direction to sort them (ascending or descending).
+Without an order by clause, the order of rows returned by an SQL query
+is undefined.<br>
+</p></span>
 </td>
-</tr></table>
+</tr></tbody></table>
 
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles1.naver.net/20150201_192/uk2aroha_1422791750790g3mcy_PNG/Ex3_7.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles1.naver.net/20150201_192/uk2aroha_1422791750790g3mcy_PNG/Ex3_7.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">Click execute. You should see a result similar to the following :</span></br>
+<br><span class="ft2">Click execute. You should see a result similar to the following :</span><br>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles12.naver.net/20150201_59/uk2aroha_1422791751155iN1xO_PNG/Ex3_8.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles12.naver.net/20150201_59/uk2aroha_1422791751155iN1xO_PNG/Ex3_8.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
 <p><span class="ft2">If one of these steps fail, please reach out to our Cloudera Live Forum and get help.</span></p>
-<br><span class="ft2">By introspecting the results you quickly realize that this list contains many of the products on the most sold list from previous</span></br>
-<br><span class="ft2">tutorial steps, but there is one product that did not show up in the previous result. There is one product that seems to be viewed </span></br>
+<br><span class="ft2">By introspecting the results you quickly realize
+that this list contains many of the products on the most sold list from
+previous</span><br>
+<br><span class="ft2">tutorial steps, but there is one product that did
+not show up in the previous result. There is one product that seems to
+be viewed </span><br>
 <p><span class="ft2">a lot, but never purchased. Why?</span></p>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles5.naver.net/20150201_212/uk2aroha_1422791751512mWLdX_PNG/Ex3_9.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles5.naver.net/20150201_212/uk2aroha_1422791751512mWLdX_PNG/Ex3_9.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">You can see that Mid Football Cleat is missing.</span></br>
+<br><span class="ft2">You can see that Mid Football Cleat is missing.</span><br>
 
-<p class=MsoNormal style='text-align:center'><span lang=EN-US
-		style='mso-no-proof:yes'><img width=695 height=378
-		src="http://postfiles5.naver.net/20150201_84/uk2aroha_1422791751866rbHwj_PNG/Ex3_10.png?type=w3"
-		v:shapes="Picture_x0020_8"></span></p>
+<p class="MsoNormal" style="text-align: center;"><span style="" lang="EN-US"><img src="http://postfiles5.naver.net/20150201_84/uk2aroha_1422791751866rbHwj_PNG/Ex3_10.png?type=w3" v:shapes="Picture_x0020_8" height="378" width="695"></span></p>
 
-<br><span class="ft2">Well, in our example with DataCo, once these odd findings are presented to your manager, it is immediately escalated.</span></br>
-<br><span class="ft2">Eventually, someone figures out that on that view page, where most visitors stopped, the sales path of the product had a typo</span></br>
-<br><span class="ft2">in the price for the item. Once the typo was fixed, and a correct price was displayed, the sales for that SKU started to rapidly</span></br>
+<br><span class="ft2">Well, in our example with DataCo, once these odd findings are presented to your manager, it is immediately escalated.</span><br>
+<br><span class="ft2">Eventually, someone figures out that on that view page, where most visitors stopped, the sales path of the product had a typo</span><br>
+<br><span class="ft2">in the price for the item. Once the typo was fixed, and a correct price was displayed, the sales for that SKU started to rapidly</span><br>
 <p><span class="ft2">increase.</span></p>
-<br><span class="ft3">CONCLUSION</span></br>
-<br><span class="ft2">If you hadn°Øt had an efficient and interactive tool enabling analytics on high-volume semi-structured data, this loss of revenue</span></br>
-<br><span class="ft2">would have been missed for a long time. There is risk of loss if an organization looks for answers within partial data. Correlating</span></br>
-<br><span class="ft2">two data sets for the same business question showed value, and being able to do so within the same platform made life easier </span></br>
-<br><span class="ft2">for you and for the organization.</span></br>
+<br><span class="ft3">CONCLUSION</span><br>
+<br><span class="ft2">If you hadn°�&#732;t had an efficient and interactive
+tool enabling analytics on high-volume semi-structured data, this loss
+of revenue</span><br>
+<br><span class="ft2">would have been missed for a long time. There is
+risk of loss if an organization looks for answers within partial data.
+Correlating</span><br>
+<br><span class="ft2">two data sets for the same business question showed value, and being able to do so within the same platform made life easier </span><br>
+<br><span class="ft2">for you and for the organization.</span><br>
 
 
 
 
-<script TYPE="text/javascript">
+<script type="text/javascript">
 			var currentZoom = parent.ltop.currentZoom;
 			if(currentZoom != undefined)
 				document.body.style.zoom=currentZoom/100;
@@ -343,17 +336,17 @@ select count(*),url from tokenized_access_logs<br>
 <font face="Arial" size="3"><br>
 </font>
 <div style="text-align: left;"><font style="font-weight: bold;" face="Arial" size="3">
-<a href="explain_3.html", target="middle">&lt;&lt;&lt; Case 2</a></font><br>
+<a href="explain_3.html" ,="" target="middle">&lt;&lt;&lt; Case 2</a></font><br>
 </div>
 <div style="text-align: right;"><font style="font-weight: bold;" face="Arial" size="3">
-<a href="explain_4.html", target="middle">Case 3&gt;&gt;&gt</a>;</font><br>
+<a href="explain_4.html" ,="" target="middle">Case 3&gt;&gt;&gt;</a>;</font><br>
 </div>
 <font face="Arial" size="3">
 
 			
 			
 			<br><br>
-        <iframe src="down_page.html" width="100%" height="115" frameborder="1" scrolling="no"></iframe>
+        <iframe src="down_page.html" frameborder="1" height="115" scrolling="no" width="100%"></iframe>
 
 			
-</body>
+</font></body></html>

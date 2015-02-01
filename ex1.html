@@ -1,17 +1,14 @@
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
 
- <head>
+ 
 
- </head>
-
-   <style>
+ <style>
    body { background-image : url("http://blogfiles.naver.net/20150201_187/drivesol_1422789780016gfVwj_PNG/wb3.png");
       background-position : 50% 50% ;
       background-attachment : fixed ;
       background-repeat : no-repeat; }
-   </style>
-
-  <body>
+   </style></head><body>
 
 <font face="Arial" size="5">
 
@@ -20,42 +17,71 @@
 
 <font face="Arial" size="4">
 
-<b>   Ingest Structured Data </font><br><br>
+<b>   Ingest Structured Data </b></font><b><br><br>
 
 
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">In this scenario, DataCo¡¯s business question is: What products do our customers like to buy? To answer this question, the first thought might be to look at the transaction data, which should indicate what customers actually do buy and like to buy, right? </span></p>
+</b><p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>In
+this scenario, DataCo¡¯s business question is: What products do our
+customers like to buy? To answer this question, the first thought might
+be to look at the transaction data, which should indicate what
+customers actually do buy and like to buy, right? </b></span></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">This is probably something you can do in your regular RDBMS environment, but a benefit with Cloudera¡¯s platform is that you can do it at greater scale at lower cost, on the same system that you may also use for many other types of analysis. </span></p>
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>This
+is probably something you can do in your regular RDBMS environment, but
+a benefit with Cloudera¡¯s platform is that you can do it at greater
+scale at lower cost, on the same system that you may also use for many
+other types of analysis. </b></span></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  &nbsp; <o:p></o:p></p><p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">What this exercise demonstrates is how to do exactly the same thing you already know how to do, but in CDH. Seamless integration is important when evaluating any new infrastructure. Hence, it¡¯s important to be able to do what you normally do, and not break any regular BI reports or workloads over the dataset you plan to migrate. </span></p>
+<p class="1" style="line-height: 160%;"><b>  &nbsp; <o:p></o:p></b></p><p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>What
+this exercise demonstrates is how to do exactly the same thing you
+already know how to do, but in CDH. Seamless integration is important
+when evaluating any new infrastructure. Hence, it¡¯s important to be
+able to do what you normally do, and not break any regular BI reports
+or workloads over the dataset you plan to migrate. </b></span></p>
 
-<p class="0" style="mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  &nbsp;<o:p></o:p></p>
+<p class="0" style=""><b>  &nbsp;<o:p></o:p></b></p>
 
-<p><br></p>
-
-
-<p><img width="740" height="492" title="noname01.png" align="" class="__se_object" id="se_object_142278804696277565" style="width: 740px; height: 492px; rwidth: 740px; rheight: 492px;" src="http://blogfiles.naver.net/20150201_216/blue91822_1422788059197hSGU1_PNG/noname01.png" rwidth="740" rheight="492" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment"><br></p>
-
-
-
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">
-
-To analyze the transaction data in the new platform, we need to ingest it into the Hadoop Distributed File System (HDFS). We need to find a tool that easily transfers structured data from a RDBMS to HDFS, while preserving structure. That enables us to query the data, but not interfere with or break any regular workload on it. 
-Apache Sqoop, which is part of CDH, is that tool. The nice thing about Sqoop is that we can automatically load our relational data from MySQL into HDFS, while preserving the structure. 
-With a few additional configuration parameters, we can take this one step further and load this relational data directly into a form ready to be queried by Impala (the open source analytic query engine included with CDH). Given that we may want to leverage the power of the Apache Avro file format for other workloads on the cluster (as Avro is a Hadoop optimized file format), we will take a few extra steps to load this data into Impala using the Avro file format, so it is readily available for Impala as well as other workloads. 
-You should first log in to the Master Node of your cluster using SSH - you can get the credentials using the instructions on Your Cloudera Cluster. Once you are logged in, you can launch the Sqoop job: 
-You should first open a terminal, which you can do by clicking the black "Terminal" icon at the top of your screen or clicking right button of mouse to see the menu.  </span></p>
-
-
-<p><img width="601" height="313" title="noname02.png" align="" class="__se_object" id="se_object_14227881188131814" style="width: 601px; height: 313px; rwidth: 601px; rheight: 313px;" src="http://blogfiles.naver.net/20150201_182/blue91822_1422788131035ocTVI_PNG/noname02.png" rwidth="601" rheight="313" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment">
-
-<p class="1" style="text-align: justify; line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">And input the command like this :</span></p>
+<p><b><br></b></p>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<p style="text-align: center;"><b><img title="noname01.png" class="__se_object" id="se_object_142278804696277565" style="width: 740px; height: 492px;" src="http://blogfiles.naver.net/20150201_216/blue91822_1422788059197hSGU1_PNG/noname01.png" rwidth="740" rheight="492" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" align="" height="492" width="740"><br></b></p>
+
+
+
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US">
+
+<b>To analyze the transaction data in the new platform, we need to
+ingest it into the Hadoop Distributed File System (HDFS). We need to
+find a tool that easily transfers structured data from a RDBMS to HDFS,
+while preserving structure. That enables us to query the data, but not
+interfere with or break any regular workload on it. Apache Sqoop, which
+is part of CDH, is that tool. The nice thing about Sqoop is that we can
+automatically load our relational data from MySQL into HDFS, while
+preserving the structure. With a few additional configuration
+parameters, we can take this one step further and load this relational
+data directly into a form ready to be queried by Impala (the open
+source analytic query engine included with CDH). Given that we may want
+to leverage the power of the Apache Avro file format for other
+workloads on the cluster (as Avro is a Hadoop optimized file format),
+we will take a few extra steps to load this data into Impala using the
+Avro file format, so it is readily available for Impala as well as
+other workloads. You should first log in to the Master Node of your
+cluster using SSH - you can get the credentials using the instructions
+on Your Cloudera Cluster. Once you are logged in, you can launch the
+Sqoop job: You should first open a terminal, which you can do by
+clicking the black "Terminal" icon at the top of your screen or
+clicking right button of mouse to see the menu. </b></span></p>
+
+
+<p style="text-align: center;"><b><img title="noname02.png" class="__se_object" id="se_object_14227881188131814" style="width: 601px; height: 313px;" src="http://blogfiles.naver.net/20150201_182/blue91822_1422788131035ocTVI_PNG/noname02.png" rwidth="601" rheight="313" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" align="" height="313" width="601">
+
+</b></p><p class="1" style="text-align: justify; line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>And input the command like this :</b></span></p>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 894px; height: 132px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 [root@quickstart.cloudera ~] sqoop import-all-tables  \ <br>
 -m 1  \ <br>
@@ -67,187 +93,207 @@ You should first open a terminal, which you can do by clicking the black "Termin
 --warehouse-dir=/user/hive/warehouse <br>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<br><br>
+<b><br><br>
 
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+</b><table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 895px; height: 308px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 [root@quickstart.cloudera ~] sqoop import-all-tables  \ <br>
-¨ç<u style="text-underline: #ff0000 double; color=red">
+¨ç<u style="">
 -m 1</u> \
 --connect
-¨è<u style="text-underline: #ff0000 double;"> jdbc
+¨è<u style=""> jdbc
 </u>
 :mysql://quickstart.cloudera:3306/retail_db  \  <br>
 --username=retail_dba  \ <br>
 --password=cloudera  \ <br>
-¨é<u style="text-underline: #ff0000 double;"> --compression-codec=snappy \
+¨é<u style=""> --compression-codec=snappy \
 </u>
 --as-
-¨ê<u style="text-underline: #ff0000 double;"> avro </u> datafile \ <br>
+¨ê<u style=""> avro </u> datafile \ <br>
 --warehouse-dir=/user/hive/warehouse  <br><br><br>
 
 ¨ç -m <n> : It is a command option to use n map tasks to import in parallel.<br>
-
-¨è JDBC is a Java database connectivity technology (Java Standard Edition platform) from Oracle Corporation. This technology is an API for the Java programming language that defines how a client may access a database. It provides methods for querying and updating data in a database. JDBC is oriented towards relational databases.<br>
+¨è JDBC is a Java database connectivity technology (Java Standard
+Edition platform) from Oracle Corporation. This technology is an API
+for the Java programming language that defines how a client may access
+a database. It provides methods for querying and updating data in a
+database. JDBC is oriented towards relational databases.<br>
 
 ¨é On the command line, use the following option to enable Snappy compression.<br>
-cf. Snappy is a compression/decompression library. It does not aim for maximum compression, or compatibility with any other compression library; instead, it aims for very high speeds and reasonable compression. For instance, compared to the fastest mode of zlib, Snappy is an order of magnitude faster for most inputs, but the resulting compressed files are anywhere from 20% to 100% bigger. On a single core of a Core i7 processor in 64-bit mode, Snappy compresses at about 250 MB/sec or more and decompresses at about 500 MB/sec or more.<br>
+cf. Snappy is a compression/decompression library. It does not aim for
+maximum compression, or compatibility with any other compression
+library; instead, it aims for very high speeds and reasonable
+compression. For instance, compared to the fastest mode of zlib, Snappy
+is an order of magnitude faster for most inputs, but the resulting
+compressed files are anywhere from 20% to 100% bigger. On a single core
+of a Core i7 processor in 64-bit mode, Snappy compresses at about 250
+MB/sec or more and decompresses at about 500 MB/sec or more.<br>
 ¨ê Avro is a data serialization system.
-</td>
-</tr></table>
+</n></td>
+</tr></tbody></table>
 
-<p><br></p>
+<p><b><br></b></p>
 
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  <o:p></o:p></p>
+<p class="1" style="line-height: 160%;"><b>  <o:p></o:p></b></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">This command may take a while to complete, but it is doing a lot. It is launching MapReduce jobs to export the data from our MySQL database, and put those export files in Avro format in HDFS. It is also creating the Avro schema, so that we can easily load our Hive tables for use in Impala later.</span></p>
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>This
+command may take a while to complete, but it is doing a lot. It is
+launching MapReduce jobs to export the data from our MySQL database,
+and put those export files in Avro format in HDFS. It is also creating
+the Avro schema, so that we can easily load our Hive tables for use in
+Impala later.</b></span></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">   <o:p></o:p></p>
+<p class="1" style="line-height: 160%;"><b>   <o:p></o:p></b></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">   <o:p></o:p></p>
+<p class="1" style="line-height: 160%;"><b>   <o:p></o:p></b></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"> 
+<p class="1" style="line-height: 160%;"><b> 
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-size: 15pt; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Verification step : </span></p>
+</b></p><p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-size: 15pt;" lang="EN-US"><b>Verification step : </b></span></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">When this command is complete, confirm that your Avro data files exist in HDFS. </span></p>
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>When this command is complete, confirm that your Avro data files exist in HDFS. </b></span></p>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
 
-<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 34.71pt;">
+<tbody><tr><td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 663.31pt; height: 34.71pt;" valign="top">
 
 
 [root@quickstart.cloudera ~] hadoop fs -ls /user/hive/warehouse
 
 
 </td></tr>
-</table>
+</tbody></table>
 
-<br><br>
+<b><br><br>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+</b><table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 899px; height: 52px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 
 [comments] <br>
-[root@quickstart.cloudera ~] hadoop fs ¨ç <u style="text-underline: #ff0000 double;"> -ls</u>/user/hive/warehouse <br>
+[root@quickstart.cloudera ~] hadoop fs ¨ç <u style=""> -ls</u>/user/hive/warehouse <br>
 ¨ç -ls : is one of the most frequently used command in Linux. It shows lists files and directories.
 
 </td></tr>
-</table>
+</tbody></table>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Will show a folder for each of the tables. </span></p>
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>Will show a folder for each of the tables. </b></span></p>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
 
-<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 34.71pt;">
+<tbody><tr><td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 663.31pt; height: 34.71pt;" valign="top">
 
 [root@quickstart.cloudera ~] hadoop fs -ls /user/hive/warehouse/categories/
 
-</td></tr></table>
+</td></tr></tbody></table>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Will show the files that live inside of the categories folder. </span></p>
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>Will show the files that live inside of the categories folder. </b></span></p>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Result : </span></p>
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>Result : </b></span></p>
 
-<br><br>
+<b><br><br>
 
-<p><br></p><p><img width="582" height="189" title="noname03.png" align="" class="__se_object" id="se_object_142278818293757543" style="width: 582px; height: 189px; rwidth: 582px; rheight: 189px;" src="http://blogfiles.naver.net/20150201_259/blue91822_1422788195144nsUO3_PNG/noname03.png" rwidth="582" rheight="189" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment"></p>
+</b><p><b><br></b></p><p style="text-align: center;"><b><img title="noname03.png" class="__se_object" id="se_object_142278818293757543" style="width: 582px; height: 189px;" src="http://blogfiles.naver.net/20150201_259/blue91822_1422788195144nsUO3_PNG/noname03.png" rwidth="582" rheight="189" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" align="" height="189" width="582"></b></p>
 
-<p><br></p><p><br></p><p><img width="590" height="103" title="noname04.png" align="" class="__se_object" id="se_object_142278824330324310" style="width: 590px; height: 103px; rwidth: 590px; rheight: 103px;" src="http://blogfiles.naver.net/20150201_255/blue91822_1422788255375Mro9v_PNG/noname04.png" rwidth="590" rheight="103" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment"></p>
-
-
-<br><br>
+<p><b><br></b></p><p><b><br></b></p><p style="text-align: center;"><b><img title="noname04.png" class="__se_object" id="se_object_142278824330324310" style="width: 590px; height: 103px;" src="http://blogfiles.naver.net/20150201_255/blue91822_1422788255375Mro9v_PNG/noname04.png" rwidth="590" rheight="103" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" align="" height="103" width="590"></b></p>
 
 
-
-
-
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span style="letter-spacing: 0pt; font-weight: bold; mso-fareast-font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt;">¡Ø </span><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-weight: bold; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Note : The file lists depend on quickstart version. So you can see the different result page.</span></p><p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  <o:p></o:p></p>
+<b><br><br>
 
 
 
 
 
+</b><p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-weight: bold;"><b>¡Ø </b></span><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-weight: bold;" lang="EN-US"><b>Note : The file lists depend on quickstart version. So you can see the different result page.</b></span></p><p class="1" style="line-height: 160%;"><b>  <o:p></o:p></b></p>
 
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span style="letter-spacing: 0pt; font-weight: bold; mso-fareast-font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt;">¡Ø </span><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-weight: bold; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Note : The file lists depend on quickstart version. So you can see the different result page.</span></p><p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  <o:p></o:p></p>
 
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Sqoop should also have created schema files for this data in your home directory. <br> Avro schema files : </span></p>
 
-<br>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
 
-<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 34.71pt;">
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-weight: bold;"><b>¡Ø </b></span><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-weight: bold;" lang="EN-US"><b>Note : The file lists depend on quickstart version. So you can see the different result page.</b></span></p><p class="1" style="line-height: 160%;"><b>  <o:p></o:p></b></p>
+
+
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>Sqoop should also have created schema files for this data in your home directory. <br> Avro schema files : </b></span></p>
+
+<b><br>
+
+</b><table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+
+<tbody><tr><td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 663.31pt; height: 34.71pt;" valign="top">
 
 [root@quickstart.cloudera ~] ls -l*.avsc
 </td></tr>
 
-</table>
+</tbody></table>
 
-<br><br>
+<b><br><br>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+</b><table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
 
 
-<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 69.63pt;">
+<tbody><tr><td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 663.31pt; height: 69.63pt;" valign="top">
 
 [comments]<br>
-[root@quickstart.cloudera ~] ls ¨ç<u style="text-underline: #ff0000 double;">
+[root@quickstart.cloudera ~] ls ¨ç<u style="">
 -l</u>*.avsc 
 <br>
 ¨ç -l : is the option of ls command. It is to show list one file per line.
 
 </td></tr>
 
-</table>
+</tbody></table>
 
-<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Should show .avsc files for the tables that were in our retail_db.
+<p class="1" style="line-height: 160%;"><span style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ;" lang="EN-US"><b>Should show .avsc files for the tables that were in our retail_db.
 <br>
-Result : </span></p>
+Result : </b></span></p>
 
 
-<p><img width="590" height="103" title="noname04.png" align="" class="__se_object" id="se_object_142278824330324310" style="width: 590px; height: 103px; rwidth: 590px; rheight: 103px;" src="http://blogfiles.naver.net/20150201_255/blue91822_1422788255375Mro9v_PNG/noname04.png" rwidth="590" rheight="103" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment"></p>
+<p style="text-align: center;"><b><img title="noname04.png" class="__se_object" id="se_object_142278824330324310" style="width: 590px; height: 103px;" src="http://blogfiles.naver.net/20150201_255/blue91822_1422788255375Mro9v_PNG/noname04.png" rwidth="590" rheight="103" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" align="" height="103" width="590"></b></p>
 
 
 
 
-<font face="Arial" size="3">
+<b><font face="Arial" size="3">
+Note that the schema and the data are stored in separate files. The
+schema is only applied when the data is queried, a technique called
+'schema-on-read'. This gives you the flexibility to query the data with
+SQL while it's still in a format usable by other systems as well.
+Whereas a traditional database requires the schema to be defined before
+entering any data, we have already imported a lot of data and will only
+now specify how it's structure should be interpreted. Apache Hive will
+need the schema files too, so let's copy them into HDFS where Hive can
+easily access them. </font></b><p>
 
-Note that the schema and the data are stored in separate files. The schema is only applied when the data is queried, a technique called 'schema-on-read'. This gives you the flexibility to query the data with SQL while it's still in a format usable by other systems as well. Whereas a traditional database requires the schema to be defined before entering any data, we have already imported a lot of data and will only now specify how it's structure should be interpreted. 
-Apache Hive will need the schema files too, so let's copy them into HDFS where Hive can easily access them. 
-<p>
 
-
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 906px; height: 52px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
 [root@quickstart.cloudera ~] sudo -u hdfs hadoop fs -mkdir /user/examples <br>
 [root@quickstart.cloudera ~] sudo -u hdfs hadoop fs -chmod +rw /user/examples <br>
 [root@quickstart.cloudera ~] hadoop fs -copyFromLocal ~/*.asc /user/examples/ <br>
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<br><br>
-
-
+<b><font face="Arial" size="3"><br><br>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 115pt;">
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 906px; height: 182px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 115pt;" valign="top">
 [comments] <br><br>
 
 [root@quickstart.cloudera ~] ¡§csudo -u hdfs hadoop fs ¡§e-mkdir /user/examples <br>
@@ -256,35 +302,48 @@ Apache Hive will need the schema files too, so let's copy them into HDFS where H
 <p>
 ¡§c "sudo" is to do something as a different user(typically as root, the "superuser").<br>
 ¡§e "mkdir" means making directory. <br>
-¡§e "chmod" is used to change the permissions of files or directories. So as you input the command, you change the permission of "/user/examples" folder to add read permission(r) and write permission(w).</td>
-</tr></table>
+¡§e "chmod" is used to change the permissions of files or directories.
+So as you input the command, you change the permission of
+"/user/examples" folder to add read permission(r) and write
+permission(w).</p></td>
+</tr></tbody></table>
 
-<p>
-
-
-
-Now that we have the data, we can prepare it to be queried. There are two tools for doing SQL-like queries in CDH: Hive and Impala. Hive works by translating SQL queries into MapReduce jobs, so it's best for large batch jobs and applying flexible transformations. Impala is significantly faster and is intended to have low enough latency for interactive queries and data exploration. Impala and Hive can share the metadata about these tables (and their query languages are similar), so we'll use Hive's shell to define these tables, similar to how you would have defined them in your relational database. Hive's query language will look very familiar if you know SQL, and they are intended to be as compatible as possible. There are differences however, as Hive and Impala's abilities introduce some new concepts. Launch the Hive shell and create the tables. 
-
-<p>
+</font></b></p><p>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+<b><font face="Arial" size="3">Now that we have the data, we can
+prepare it to be queried. There are two tools for doing SQL-like
+queries in CDH: Hive and Impala. Hive works by translating SQL queries
+into MapReduce jobs, so it's best for large batch jobs and applying
+flexible transformations. Impala is significantly faster and is
+intended to have low enough latency for interactive queries and data
+exploration. Impala and Hive can share the metadata about these tables
+(and their query languages are similar), so we'll use Hive's shell to
+define these tables, similar to how you would have defined them in your
+relational database. Hive's query language will look very familiar if
+you know SQL, and they are intended to be as compatible as possible.
+There are differences however, as Hive and Impala's abilities introduce
+some new concepts. Launch the Hive shell and create the tables. </font></b></p><p>
 
 
-hive>
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 901px; height: 27px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
+
+
+hive&gt;
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
-<p>
+</p><p>
 
-<b> Copy and paste the queries below, and hit enter.</b>
+<b><font face="Arial" size="3"><b> Copy and paste the queries below, and hit enter.</b>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 130.93pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 901px; height: 778px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 130.93pt;" valign="top">
 CREATE EXTERNAL TABLE categories <br>
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' <br>
 STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat' <br>
@@ -326,14 +385,14 @@ STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputForma
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat' <br>
 LOCATION 'hdfs:///user/hive/warehouse/products' <br>
 TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_products.avsc');<br> </td>
-</tr></table>
+</tr></tbody></table>
 <br>
 
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 100pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 900px; height: 166px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 100pt;" valign="top">
 
 
 
@@ -351,64 +410,61 @@ OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'<br>
 
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
 
 
-<p>
-Now you should have the following tables created. <br>
+</font></b></p><p>
+<b><font face="Arial" size="3">Now you should have the following tables created. <br>
 
 
 <br><br>
-<font face="Arial" size="3"></body>
+<font face="Arial" size="3"><table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 902px; height: 27px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
-
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
-
-hive>show tables;
+hive&gt;show tables;
 
 </td>
-</tr></table>
+</tr></tbody></table>
 
 <br><br>
 
 Result : 
 
 
-<p><img width="496" height="139" title="noname07.png" align="" class="__se_object" id="se_object_142278840318868320" style="width: 496px; height: 139px; rwidth: 496px; rheight: 139px;" src="http://blogfiles.naver.net/20150201_247/blue91822_1422788415392wEnfY_PNG/noname07.png" rwidth="496" rheight="139" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment"><br></p><p><br></p>
+</font></font></b></p><p style="text-align: center;"><b><font face="Arial" size="3"><font face="Arial" size="3"><img title="noname07.png" class="__se_object" id="se_object_142278840318868320" style="width: 496px; height: 139px;" src="http://blogfiles.naver.net/20150201_247/blue91822_1422788415392wEnfY_PNG/noname07.png" rwidth="496" rheight="139" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" align="" height="139" width="496"><br></font></font></b></p><p><b><font face="Arial" size="3"><font face="Arial" size="3"><br></font></font></b></p>
 
 
-<br>
+<b><font face="Arial" size="3"><font face="Arial" size="3"><br>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
-<tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 905px; height: 27px;">
+<tbody><tr>
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; height: 20pt;" valign="top">
 
-hive>exit;
+hive&gt;exit;
 
 </td>
-</tr></table> <br>
+</tr></tbody></table> <br>
 
 If one of these steps fails, please reach out to our Cloudera Live Forum and get help.
 <br><br>
 
-<b>CONCLUSION</b> 
-Now you have gone through the first basic steps to Sqoop structured data into HDFS, transform it into Avro file format (you can read about the benefits of Avro as a common format in Hadoop here), and create Hive tables ready for interactive SQL via Impala or batch query via Hive. 
-
-
-<br><br>
+<b>CONCLUSION</b> Now you have gone through the first basic steps to
+Sqoop structured data into HDFS, transform it into Avro file format
+(you can read about the benefits of Avro as a common format in Hadoop
+here), and create Hive tables ready for interactive SQL via Impala or
+batch query via Hive. <br><br>
 <font face="Arial" size="3"><br>
 </font>
-<div style="text-align: left;"><font style="font-weight: bold;" face="Arial" size="3">
-<a href="explain_1_2.html", target="middle">&lt;&lt;&lt; Case 1</a></font><br>
-</div>
-<div style="text-align: right;"><font style="font-weight: bold;" face="Arial" size="3">
-<a href="ex2.html", target="middle">Tutorial 2&gt;&gt;&gt;</a></font><br>
-</div>
-<font face="Arial" size="3">
+</font></font></b><div style="text-align: left;"><b><font face="Arial" size="3"><font face="Arial" size="3"><font style="font-weight: bold;" face="Arial" size="3">
+<a href="explain_1_2.html" ,="" target="middle">&lt;&lt;&lt; Case 1</a></font><br>
+</font></font></b></div>
+<div style="text-align: right;"><b><font face="Arial" size="3"><font face="Arial" size="3"><font style="font-weight: bold;" face="Arial" size="3">
+<a href="ex2.html" ,="" target="middle">Tutorial 2&gt;&gt;&gt;</a></font><br>
+</font></font></b></div>
+<b><font face="Arial" size="3"><font face="Arial" size="3"><font face="Arial" size="3">
 
 
 
@@ -416,11 +472,8 @@ Now you have gone through the first basic steps to Sqoop structured data into HD
 
 
 <br><br>
-        <iframe src="down_page.html" width="100%" height="115" frameborder="1" scrolling="no"></iframe>
+        <iframe src="down_page.html" frameborder="1" height="115" scrolling="no" width="100%"></iframe>
 
 
 
-  </body>
-
-
-</html>
+  </font></font></font></b></body></html>
