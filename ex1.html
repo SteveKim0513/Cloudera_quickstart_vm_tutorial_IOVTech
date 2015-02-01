@@ -89,6 +89,124 @@ cf. Snappy is a compression/decompression library. It does not aim for maximum c
 <p><br></p>
 
 
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  <o:p></o:p></p>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">This command may take a while to complete, but it is doing a lot. It is launching MapReduce jobs to export the data from our MySQL database, and put those export files in Avro format in HDFS. It is also creating the Avro schema, so that we can easily load our Hive tables for use in Impala later.</span></p>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">   <o:p></o:p></p>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">   <o:p></o:p></p>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"> 
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-size: 15pt; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Verification step : </span></p>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">When this command is complete, confirm that your Avro data files exist in HDFS. </span></p>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+
+<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 34.71pt;">
+
+
+[root@quickstart.cloudera ~] hadoop fs -ls /user/hive/warehouse
+
+
+</td></tr>
+</table>
+
+<br><br>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+
+<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 69.63pt;">
+
+
+[comments] <br>
+[root@quickstart.cloudera ~] hadoop fs ¨ç <u style="text-underline: #ff0000 double;"> -ls</u>/user/hive/warehouse <br>
+¨ç -ls : is one of the most frequently used command in Linux. It shows lists files and directories.
+
+</td></tr>
+</table>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Will show a folder for each of the tables. </span></p>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+
+<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 34.71pt;">
+
+[root@quickstart.cloudera ~] hadoop fs -ls /user/hive/warehouse/categories/
+
+</td></tr></table>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Will show the files that live inside of the categories folder. </span></p>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">Result : </span></p>
+
+<br><br>
+
+image
+
+<br><br>
+
+
+
+
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span style="letter-spacing: 0pt; font-weight: bold; mso-fareast-font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt;">¡Ø </span><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-weight: bold; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Note : The file lists depend on quickstart version. So you can see the different result page.</span></p><p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  <o:p></o:p></p>
+
+
+
+
+
+
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span style="letter-spacing: 0pt; font-weight: bold; mso-fareast-font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt;">¡Ø </span><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; font-weight: bold; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Note : The file lists depend on quickstart version. So you can see the different result page.</span></p><p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">  <o:p></o:p></p>
+
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Sqoop should also have created schema files for this data in your home directory. <br> Avro schema files : </span></p>
+
+<br>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+
+<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 34.71pt;">
+
+[root@quickstart.cloudera ~] ls -l*.avsc
+</td></tr>
+
+</table>
+
+<br><br>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+
+
+<tr><td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 69.63pt;">
+
+[comments]<br>
+[root@quickstart.cloudera ~] ls ¨ç<u style="text-underline: #ff0000 double;">
+-l</u>*.avsc 
+<br>
+¨ç -l : is the option of ls command. It is to show list one file per line.
+
+</td></tr>
+
+</table>
+
+<p class="1" style="line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-font-width: 100%; mso-text-raise: 0.0pt; mso-ascii-font-family: Century Gothic;">Should show .avsc files for the tables that were in our retail_db.
+<br>
+Result : </span></p>
+
+
+
+
+
+
+
+
+
+
 
 
   </body>

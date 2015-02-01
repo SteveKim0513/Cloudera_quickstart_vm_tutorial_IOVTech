@@ -60,12 +60,30 @@ This is because we created them outside of Impala, and Impala does not constantl
 
 To get our tables to display, paste the following into the query editor and hit Execute.<p>
 
-invalidate metadata <p>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+invalidate metadata
+
+</td>
+</tr></table>
+
+<br><br>
 
 [image]ex2_8<br><p>
 
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 115pt;">
+
 "invalidate metadata" statement
 : Marks the metadata for one or all tables as stale. Required after a table is created through the Hive shell, before the table is available for Impala queries. The next time the current Impala node performs a query against a table whose metadata is invalidated, Impala reloads the associated metadata before the query proceeds. This is a relatively expensive operation compared to the incremental metadata update done by the REFRESH statement, so in the common scenario of adding new data files to an existing table, prefer REFRESH rather than INVALIDATE METADATA. If you are not familiar with the way Impala uses metadata and how it shares the same metastore database as Hive, see Overview of Impala Metadata and the Metastore for background information.
+
+</td>
+</tr></table>
+
 <p>
 
 Now, you click on the "Refresh Table List" icon.
@@ -80,14 +98,22 @@ You will see your new tables.<p>
 Copy and paste or type in the following standard SQL example queries for calculating total revenue per product and showing the top 10 revenue generating products : 
 <p>
 
--- Most popular product categories 
-select c.category_name, count(order_item_quantity) as count 
-from order_items oi 
-inner join products p on oi.order_item_product_id = p.product_id 
-inner join categories c on c.category_id = p.product_category_id 
-group by c.category_name 
-order by count desc 
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 115pt;">
+
+-- Most popular product categories <br>
+select c.category_name, count(order_item_quantity) as count <br>
+from order_items oi <br>
+inner join products p on oi.order_item_product_id = p.product_id <br>
+inner join categories c on c.category_id = p.product_category_id <br>
+group by c.category_name <br>
+order by count desc <br>
 limit 10;
+
+</td>
+</tr></table>
+
 <p>
 
 Hit Execute. <p>
@@ -104,21 +130,28 @@ Clear out the previous query. <p>
 
 Copy and paste or type in the following standard SQL example queries : <p>
 
--- top 10 revenue generating products 
-select p.product_id, p.product_name, r.revenue 
-from products p inner join 
-(select oi.order_item_product_id, sum(cast(oi.order_item_subtotal as float)) as revenue 
-from order_items oi inner join orders o 
-on oi.order_item_order_id = o.order_id 
-where o.order_status <> 'CANCELED' 
-and o.order_status <> 'SUSPECTED_FRAUD' 
-group by order_item_product_id) r 
-on p.product_id = r.order_item_product_id 
-order by r.revenue desc 
-limit 10;
-<p>
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 130.93pt;">
 
-[image]ex2_14<br><p>
+-- top 10 revenue generating products <br>
+select p.product_id, p.product_name, r.revenue <br>
+from products p inner join <br>
+(select oi.order_item_product_id, sum(cast(oi.order_item_subtotal as float)) <br>as revenue <br>
+from order_items oi inner join orders o <br>
+on oi.order_item_order_id = o.order_id <br>
+where o.order_status <> 'CANCELED' <br>
+and o.order_status <> 'SUSPECTED_FRAUD' <br>
+group by order_item_product_id) r <br>
+on p.product_id = r.order_item_product_id <br>
+order by r.revenue desc <br>
+limit 10;
+
+</td>
+</tr></table>
+
+
+<br>[image]ex2_14<br><p>
 
 You should see results similar to this : 
 <p>
