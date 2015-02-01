@@ -36,6 +36,59 @@ You should first log in to the Master Node of your cluster using SSH - you can g
 You should first open a terminal, which you can do by clicking the black "Terminal" icon at the top of your screen or clicking right button of mouse to see the menu.  </span></p>
 
 
+<p class="1" style="text-align: justify; line-height: 160%; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;"><span lang="EN-US" style="letter-spacing: 0pt; font-family: ÇÑÄÄ¹ÙÅÁ; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">And input the command like this :</span></p>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 130.93pt;">
+
+[root@quickstart.cloudera ~] sqoop import-all-tables  \ <br>
+-m 1  \ <br>
+--connect jdbc:mysql://quickstart.cloudera:3306/retail_db  \ <br>
+--username=retail_dba  \ <br>
+--password=cloudera  \ <br>
+--compression-codec=snappy  \ <br>
+--as-avrodatafile  \ <br>
+--warehouse-dir=/user/hive/warehouse <br>
+
+</td>
+</tr></table>
+
+<br><br>
+
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 663.31pt; height: 346.97pt;">
+[root@quickstart.cloudera ~] sqoop import-all-tables  \ <br>
+¨ç<u style="text-underline: #ff0000 double; color=red">
+-m 1</u> \
+--connect
+¨è<u style="text-underline: #ff0000 double;"> jdbc
+</u>
+:mysql://quickstart.cloudera:3306/retail_db  \  <br>
+--username=retail_dba  \ <br>
+--password=cloudera  \ <br>
+¨é<u style="text-underline: #ff0000 double;"> --compression-codec=snappy \
+</u>
+--as-
+¨ê<u style="text-underline: #ff0000 double;"> avro </u> datafile \ <br>
+--warehouse-dir=/user/hive/warehouse  <br><br><br>
+
+¨ç -m <n> : It is a command option to use n map tasks to import in parallel.<br>
+
+¨è JDBC is a Java database connectivity technology (Java Standard Edition platform) from Oracle Corporation. This technology is an API for the Java programming language that defines how a client may access a database. It provides methods for querying and updating data in a database. JDBC is oriented towards relational databases.<br>
+
+¨é On the command line, use the following option to enable Snappy compression.<br>
+cf. Snappy is a compression/decompression library. It does not aim for maximum compression, or compatibility with any other compression library; instead, it aims for very high speeds and reasonable compression. For instance, compared to the fastest mode of zlib, Snappy is an order of magnitude faster for most inputs, but the resulting compressed files are anywhere from 20% to 100% bigger. On a single core of a Core i7 processor in 64-bit mode, Snappy compresses at about 250 MB/sec or more and decompresses at about 500 MB/sec or more.<br>
+¨ê Avro is a data serialization system.
+</td>
+</tr></table>
+
+<p><br></p>
+
+
 
 
   </body>
