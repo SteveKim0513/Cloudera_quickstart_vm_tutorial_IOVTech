@@ -1,0 +1,322 @@
+<html>
+
+	<head>
+	<meta http-equiv="content-type" content="text/html; charset=euc-kr">
+	<title>Tutorial Exercise 5</title>
+	<meta name="generator" content="Namo WebEditor(Trial)">
+	</head>
+
+	<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+
+
+		<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;mso-bidi-font-size:
+		11.0pt;line-height:115%;color:#002060'>Tutorial Exercise 5</span></b></p>
+		<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+		style='color:#002060'>_ Real-time Indexing &amp; Exploring via UI</span></span></p>
+		<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><u><span lang=EN-US
+		style='font-size:11.0pt;line-height:115%;color:#002060'>Key Concept</span></u></b></p>
+		<p class=MsoNormal><span lang=EN-US>Be well-informed of these concepts before
+		you started this tutorial. <br>
+		This might help you understand what you gonna do.</span></p>
+		<p class=MsoNormal><i><span lang=EN-US>- What is <b><span style='color:#0070C0'>Flume</span></b>?</span></i></p>
+		<p class=MsoNormal><span lang=EN-US>Flume is a system for collecting,
+		aggregating, and moving large amounts of log data from many different sources
+		to a centralized data source. Flume is a tool for ingesting streams of data
+		into your cluster from sources such as log files, network streams, and more</span></p>
+		<p class=MsoNormal><i><span lang=EN-US>- What is <b><span style='color:#0070C0'>Solr</span></b>?
+		(Solr + Hadoop = Big Data Search)</span></i></p>
+		<p class=MsoNormal><span lang=EN-US>An open source enterprise search platform.
+		Its major features include full-text search, hit highlighting, faceted search,
+		dynamic clustering, database integration, and rich doucument handling.
+		Providing distributed search and index replication, Solr is highly scalable.</span></p>
+		<p class=MsoNormal><i><span lang=EN-US>- What is <b><span style='color:#0070C0'>Molphline</span></b>?</span></i></p>
+		<p class=MsoNormal><span lang=EN-US>A simple way to accomplish on-the-fly
+		ETL(Extracting, ,Transformation, Loading). Morphlines is a Java library for
+		doing ETL on-the-fly, and it's an excellent companion to Flume. </span></p>
+
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img width=695 height=378
+		src="http://blogfiles.naver.net/20150201_232/drivesol_1422780784472s1chN_PNG/ex5_01.png"
+		v:shapes="Picture_x0020_8"></span></p>
+
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US>&lt;
+		Flume &amp; Molphline &gt;</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img width=448 height=390
+		src="http://blogfiles.naver.net/20150201_298/drivesol_14227807848749vF6y_PNG/ex5_02.png"
+		v:shapes="_x0000_i1035"></span></p>
+
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US>&lt;Flume<span
+		style='mso-spacerun:yes'>&nbsp; </span>&amp; Solr&gt;</span></p>
+		<p class=MsoNormal><i><span lang=EN-US>Explore Log Events Interactively</span></i></p>
+		<p class=MsoNormal><span lang=EN-US>What you can do to enable guided drill down
+		and exploration of data is to make it searchable. </span></p>
+		<p class=MsoNormal><span lang=EN-US>By indexing your data using any of the
+		indexing options provided by <b><span style='color:#0070C0'>Cloudera</span></b><span
+		style='color:#0070C0'> <b>Search</b></span>,<br>
+		your data can be searchable to a variety of audiences. <br>
+		You can choose to batch index data using the MapReduce Indexing tool, <b><i>or </i></b><span
+		style='mso-spacerun:yes'>&nbsp;</span>as in our example below, </span></p>
+		<p class=MsoNormal><u><span lang=EN-US>extend the <b><span style='color:#0070C0'>Apache
+		Flume </span></b>configuration</span></u><span lang=EN-US> that is already
+		ingesting the web log data to also post events <u>to <b><span style='color:
+		#0070C0'>Apache Solr</span> </b>for indexing in real-time.</u></span></p>
+		<p class=MsoNormal><span lang=EN-US>The web log data is standard web server log
+		which may look something like this : </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img width=692 height=298
+		src="http://blogfiles.naver.net/20150201_138/drivesol_1422780785368yy1Tt_PNG/ex5_03.png"
+		v:shapes="_x0000_i1034"></span></p>
+
+		<p class=MsoNormal><b><span lang=EN-US>Solr</span></b><span lang=EN-US>
+		organizes data similarly to the way a SQL database does. <br>
+		Each record is called a 'document' and consists of fields defined by the schema
+		: <br>
+		just like a row in a database table. Instead of a table, Solr calls it a
+		'collection' of documents.</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img width=431 height=70
+		src="http://blogfiles.naver.net/20150201_242/drivesol_14227807856172LaEp_PNG/ex5_04.png"
+		v:shapes="Picture_x0020_9"></span></p>
+
+		<p class=MsoNormal><span lang=EN-US>The difference is that data in Solr tends
+		to be more loosely structured. <br>
+		<u>Fields</u> may be optional, and instead of always matching exact values, <br>
+		you can also enter text queries that partially match a field, just like you're
+		searching for web pages. </span></p>
+
+		<p class=MsoNormal><span lang=EN-US>You'll also see Hue refer to <u><span
+		style='color:black;mso-themecolor:text1'>'shards'</span></u><span
+		style='color:black;mso-themecolor:text1'> </span>- and that's just the way Solr
+		breaks collections up to spread them around the cluster so you can search all
+		your data in parallel.</span></p>
+
+		<p class=MsoNormal><span lang=EN-US>Here is how you can start <u>real-time-indexing</u>
+		via <b><span style='color:#0070C0'>Cloudera Searc</span></b><b
+		style='mso-bidi-font-weight:normal'><span style='color:#0070C0'>h</span></b><span
+		style='color:#0070C0'> </span>and <b><span style='color:#0070C0'>Flume</span></b><span
+		style='color:#0070C0'> </span>over the sample web server log data and use the
+		Search UI in Hue to explore it:</span></p>
+		<p class=MsoNormal><b><span lang=EN-US>Create your search index</span></b></p>
+		<p class=MsoNormal><span lang=EN-US>Ordinarily when you are deploying a new
+		search schema, there are four steps: </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img width=689 height=320
+		src="http://blogfiles.naver.net/20150201_159/drivesol_1422780785873IQdPU_PNG/ex5_05.png"
+		v:shapes="Picture_x0020_6"></span></p>
+		<ol style='margin-top:0cm' start=1 type=1>
+		    <li class=MsoNormal style='mso-list:l0 level1 lfo1;tab-stops:list 36.0pt'><b><span
+		     lang=EN-US>Creating an empty configuration</span></b></li>
+		</ol>
+		<p class=MsoNormal><span lang=EN-US>For the sake of this tutorial, you won't
+		need to actually execute steps 1 or 2, as we have included the configuration
+		and the schema file in your cluster already.</span></p>
+		<p class=MsoNormal><span lang=EN-US><span style='mso-spacerun:yes'>&nbsp;</span>They
+		can be reviewed by exploring /opt/examples/flume/solr_configs.<br>
+		If you were doing this on your own, you would <span style='color:red'>generate
+		the configs </span>by executing the following command: </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='font-family:"바탕","serif";color:#7030A0'>$ solrctl --zk
+		quickstart.cloudera:2181/solr instancedir --generate solr_configs</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US>Ref)
+		</span><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'>zk </span><span
+		lang=EN-US>: ZooKeeper</span></p>
+		<p class=MsoNormal><b><span lang=EN-US>You don't need to do this for this
+		tutorial.</span></b><span lang=EN-US> We have already generated the
+		configuration for you. This instruction is here in case you want to create your
+		own index. </span></p>
+		<p class=MsoNormal><span lang=EN-US>The result of this command would be a
+		skeleton configuration that you could then customize to your liking.<br>
+		The primary thing that you would ordinarily be customizing is the
+		conf/schema.xml, which we cover in the next step. </span></p>
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal><b><span lang=EN-US>2. Edit your schema</span></b></p>
+		<p class=MsoNormal><span lang=EN-US>As mentioned previously, we have already
+		generated the configuration files for you. </span></p>
+		<p class=MsoNormal><span lang=EN-US>You can <a
+		href="http://quickstart.cloudera/media/schema.xml.txt">view the modified sample
+		schema here</a>.</span></p>
+		<p class=MsoNormal><span lang=EN-US>The most common area that you would be
+		interested in is the &lt; fields&gt;&lt;/fields&gt; section. </span></p>
+		<p class=MsoNormal><span lang=EN-US>From this area you can define the fields
+		that are present and searchable in your index.</span></p>
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal><b><span lang=EN-US>3. Uploading your configuration</span></b></p>
+		<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Move
+		to </span>??span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'>/opt/examples/flume</span><span
+		style='mso-ascii-font-family:"맑�? 고딕";mso-ascii-theme-font:minor-fareast;
+		mso-hansi-font-family:"맑�? 고딕";mso-hansi-theme-font:minor-fareast'>??/span><span
+		lang=EN-US> directory.</span></p>
+		<p class=MsoNormal><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'><span
+		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$ cd /opt/examples/flume</span></p>
+		<p class=MsoNormal><span lang=EN-US><span style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Creating
+		instance directory.</span></p>
+		<p class=MsoNormal><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'><span
+		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$ solrctl --zk
+		quickstart.cloudera:2181/solr instancedir --create live_logs ./solr_configs</span></p>
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal><b><span lang=EN-US>4. Creating your collection</span></b></p>
+		<p class=MsoNormal><span lang=EN-US style='font-family:"바탕","serif";color:#7030A0'><span
+		style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>$ solrctl --zk
+		quickstart.cloudera:2181/solr collection --create live_logs -s 1</span></p>
+
+
+
+
+
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal><b><span lang=EN-US>Using Hue UI</span></b></p>
+		<p class=MsoNormal><span lang=EN-US>You can verify that you successfully
+		created your collection in Solr by going to Hue, and clicking <b>Search</b> in
+		the top menu.</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img border=0 width=692 height=352
+		src="http://blogfiles.naver.net/20150201_200/drivesol_1422780786282A7sXk_PNG/ex5_06.png"
+		v:shapes="그림_x0020_1"></span></p>
+
+		<p class=MsoNormal><span lang=EN-US>Then click on <b>Indexes</b> from the top
+		right to see all of the indexes/collections.</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img border=0 width=692 height=394
+		src="http://blogfiles.naver.net/20150201_45/drivesol_1422780786533O9cFT_PNG/ex5_07.png"
+		v:shapes="그림_x0020_3"></span></p>
+
+		<p class=MsoNormal><span lang=EN-US>Now you can see the collection that we just
+		created, <b>live_logs</b>, click on it. </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img border=0 width=701 height=258
+		src="http://blogfiles.naver.net/20150201_24/drivesol_1422780789882QSTUH_PNG/ex5_08.png"
+		v:shapes="그림_x0020_14"></span></p>
+
+		<p class=MsoNormal><span lang=EN-US>You are now viewing the fields that we
+		defined in our schema.xml file</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img border=0 width=700 height=518
+		src="http://blogfiles.naver.net/20150201_47/drivesol_1422780790146wJNEP_PNG/ex5_09.png"
+		v:shapes="Picture_x0020_3"></span></p>
+		
+		<p class=MsoNormal><span lang=EN-US>Now that you have verified that your search
+		collection/index was created successfully, </span></p>
+		<p class=MsoNormal><span lang=EN-US><span
+		style='mso-spacerun:yes'>&nbsp;</span>(This means some kind of empty Database was
+		generated)</span></p>
+		<p class=MsoNormal><span lang=EN-US>we can start putting data into it using
+		Flume and Morphlines. </span></p>
+		<p class=MsoNormal><span lang=EN-US>It allows you to define a chain of tasks
+		like reading records, parsing and formatting individual fields, and deciding
+		where to send them, etc. </span></p>
+		<p class=MsoNormal><span lang=EN-US>We've defined a morphline that reads
+		records from Flume, breaks them into the fields we want to search on, and loads
+		them into Solr (You can read more about Morphlines <a
+		href="http://blog.cloudera.com/blog/2013/07/morphlines-the-easy-way-to-build-and-integrate-etl-apps-for-apache-hadoop/">here</a>).
+		</span></p>
+		<p class=MsoNormal><span lang=EN-US>This example Morphline is defined at
+		/opt/examples/flume/conf/morphline.conf, and we're going to use it to index our
+		records in real-time as they're created and ingested by Flume. </span></p>
+		<p class=MsoNormal><span lang=EN-US>Following the next steps.</span></p>
+		<p class=MsoNormal><b><span lang=EN-US>Starting the Log Generator</span></b></p>
+		<p class=MsoNormal><span lang=EN-US>Your Cloudera Live cluster has a log
+		generator for use with sample data. Start the log generator by running the
+		following command </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='font-family:"바탕","serif";color:#7030A0'>$ start_logs</span></p>
+		<p class=MsoNormal><span lang=EN-US>You can verify that the log generator has
+		started by running </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='font-family:"바탕","serif";color:#7030A0'>$ tail_logs</span></p>
+		<p class=MsoNormal><span lang=EN-US>When you're done watching the logs, you can
+		hit <span style='color:#C00000'>&lt;Ctrl + C&gt;</span> to return to your
+		terminal. </span></p>
+		<p class=MsoNormal><span lang=EN-US>Later, if you want to stop the log
+		generator you can: </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='font-family:"바탕","serif";color:#7030A0'>$ stop_logs</span></p>
+
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US>You
+		can see like this results.</span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US><span style='mso-no-proof:yes'> <img border=0 width=698 height=598
+		src="http://blogfiles.naver.net/20150201_62/drivesol_1422780790361i9gef_PNG/ex5_10.png"
+		v:shapes="Picture_x0020_4"></span></span></p>
+		<p class=MsoNormal style='text-align:left'>&nbsp;</p>
+		<p class=MsoNormal><b><span lang=EN-US>Flume and the morphline</span></b></p>
+		<p class=MsoNormal><span lang=EN-US>Now that we have an empty <b
+		style='mso-bidi-font-weight:normal'><span style='color:#00B0F0'>Solr</span></b><span
+		style='color:#00B0F0'> </span>index, and live log events coming in to our fake
+		access.log, </span></p>
+		<p class=MsoNormal><span lang=EN-US>we can use Flume and <b style='mso-bidi-font-weight:
+		normal'><span style='color:#00B0F0'>morphlines</span></b><span
+		style='color:#00B0F0'> </span><u>to load the index with the real-time log data.</u></span></p>
+		<p class=MsoNormal><span lang=EN-US>The key player in this tutorial is <b><span
+		style='color:#00B0F0'>Flume</span></b>. Flume is a system for collecting, </span></p>
+		<p class=MsoNormal><span lang=EN-US>aggregating, and moving large amounts of
+		log data from many different sources to a centralized data source.</span></p>
+		<p class=MsoNormal><span lang=EN-US>With a few simple configuration files, we
+		can use <b><span style='color:#00B0F0'>Flume</span></b><span style='color:#00B0F0'>
+		</span>and a <b><span style='color:#00B0F0'>morphline</span></b><span
+		style='color:#00B0F0'> </span>(a simple way to accomplish on-the-fly ETL,) to
+		load our data into our <b><span style='color:#00B0F0'>Solr</span></b><span
+		style='color:#00B0F0'> </span>index.</span></p>
+		<p class=MsoNormal><i><span lang=EN-US>(You can use Flume to load many other
+		types of data stores; Solr is just the example we are using for this tutorial)</span></i></p>
+		<p class=MsoNormal><span lang=EN-US>You can review the <a
+		href="http://quickstart.cloudera/media/flume.conf.txt">flume.conf</a> file and
+		the <a href="http://quickstart.cloudera/media/morphline.conf.txt">morphline.conf</a>
+		that it uses.</span></p>
+		<p class=MsoNormal><span lang=EN-US>Start the Flume agent by executing the
+		following command to get debugging log : </span></p>
+		<p class=MsoNormal><span lang=EN-US
+		style='font-family:"바탕","serif";color:#7030A0'>$ flume-ng agent --conf/opt/examples/flume/conf --conf-file /opt/examples/flume/conf/flume.conf \</span></p>
+
+		<p class=MsoNormal style='text-align:left;text-indent:40.0pt'><span
+		lang=EN-US style='font-family:"바탕","serif";color:#7030A0'>--name agent1
+		-Dflume.root.logger=DEBUG,INFO,console</span></p>
+		<p class=MsoNormal><span lang=EN-US>This will start running the Flume agent in
+		the foreground. Once it has started, and is processing log records, </span></p>
+		<p class=MsoNormal><span lang=EN-US>Now you can go back to the Hue UI (refer
+		back to your cluster's guidance page for the link), and click 'Search' from the
+		collection's page: </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img border=0 width=701 height=365
+		src="http://blogfiles.naver.net/20150201_54/drivesol_1422780790594XROvD_PNG/ex5_11.png"
+		v:shapes="Picture_x0020_7"></span></p>
+		<p class=MsoNormal><span lang=EN-US>You will be able to search, drill down
+		into, and browse the events that have been indexed. </span></p>
+		<p class=MsoNormal style='text-align:center'><span lang=EN-US
+		style='mso-no-proof:yes'><img border=0 width=700 height=225
+		src="http://blogfiles.naver.net/20150201_121/drivesol_1422780790811ceB81_PNG/ex5_12.png"
+		v:shapes="Picture_x0020_5"></span></p>
+		<p class=MsoNormal><span lang=EN-US>If one of these steps fails, please reach
+		out to our <a
+		href="http://community.cloudera.com/t5/Cloudera-Live/bd-p/ClouderaLive">Cloudera</a><a
+		href="http://community.cloudera.com/t5/Cloudera-Live/bd-p/ClouderaLive"> Live
+		Forum</a> and get help. Otherwise, you can start exploring the log data and
+		understand what is going on.</span></p>
+		<p class=MsoNormal><span lang=EN-US>For our story</span>??span lang=EN-US>s
+		sake, we pretend that you started indexing data the same time as you started
+		ingesting it (via Flume) to the platform, so that when your manager escalated
+		the issue, you could immediately drill down into data from the last three days
+		and explore what happened. </span></p>
+		<p class=MsoNormal><span lang=EN-US>For example, perhaps you noted a lot of
+		DDOS events and could take the right measures to preempt the attack. Problem
+		solved! </span></p>
+		<p class=MsoNormal><span lang=EN-US>Management is fantastically happy with your
+		recent contributions, which of course leads to a great bonus or something
+		similar. </span></p>
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal><b><span lang=EN-US>CONCLUSION</span></b></p>
+		<p class=MsoNormal><span lang=EN-US>Now you have learned how to use Cloudera
+		Search to allow exploration of data in real time, using Flume and Solr and
+		Morphlines. Further, you now understand how you can serve multiple use cases
+		over the same data </span>??</p>
+		<p class=MsoNormal><span lang=EN-US>as well as from previous steps: serve
+		multiple data sets to provide bigger insights. </span></p>
+		<p class=MsoNormal><span lang=EN-US>The flexibility and multi-workload
+		capability of a Hadoop-based Enterprise Data Hub are some of the core elements
+		that have made Hadoop valuable to organizations world wide.</span></p>
+		<p class=MsoNormal>&nbsp;</p>
+		<p class=MsoNormal>Now all step is done. Thank you for using Cloudera.</p>
+		<p>&nbsp;</p>
+	</body>
+
+</html>
