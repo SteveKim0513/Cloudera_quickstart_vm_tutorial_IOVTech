@@ -67,17 +67,17 @@ Once you have the scala> prompt, paste the following code, and hit enter.</br></
 <tr>
 <td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
 
-import org.apache.avro.generic.GenericRecord
-import org.apache.avro.mapred.{AvroInputFormat, AvroWrapper}
-import org.apache.hadoop.io.NullWritable
-
+import org.apache.avro.generic.GenericRecord<br>
+import org.apache.avro.mapred.{AvroInputFormat, AvroWrapper}<br>
+import org.apache.hadoop.io.NullWritable<br>
+<br><br>
 val warehouse = "hdfs://quickstart.cloudera/user/hive/warehouse/"
-
-val order_items_path = warehouse + "order_items"
-val order_items = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](order_items_path)
-
-val products_path = warehouse + "products"
-val products = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](products_path)
+<br><br>
+val order_items_path = warehouse + "order_items"<br>
+val order_items = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](order_items_path)<br>
+<br><br>
+val products_path = warehouse + "products"<br>
+val products = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](products_path)<br>
 </td>
 </tr></table>
 
@@ -105,27 +105,27 @@ image5</br></br>
 <td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
 
 
-val orders = order_items.map { x => (
-    x._1.datum.get("order_item_product_id"),
-    (x._1.datum.get("order_item_order_id"), x._1.datum.get("order_item_quantity")))
-}.join(
-  products.map { x => (
-    x._1.datum.get("product_id"),
-    (x._1.datum.get("product_name")))
-  }
-).map(x => (
-    scala.Int.unbox(x._2._1._1), // order_id
-    (
-        scala.Int.unbox(x._2._1._2), // quantity
-        x._2._2.toString // product_name
-    )
-)).groupByKey()
+val orders = order_items.map { x => (<br>
+    x._1.datum.get("order_item_product_id"),<br>
+    (x._1.datum.get("order_item_order_id"), x._1.datum.get("order_item_quantity")))<br>
+}.join(<br>
+  products.map { x => (<br>
+    x._1.datum.get("product_id"),<br>
+    (x._1.datum.get("product_name")))<br>
+  }<br>
+).map(x => (<br>
+    scala.Int.unbox(x._2._1._1), // order_id<br>
+    (<br>
+        scala.Int.unbox(x._2._1._2), // quantity<br>
+        x._2._2.toString // product_name<br>
+    )<br>
+)).groupByKey()<br>
 </td>
 </tr></table>
 
 <br><br>
 
-image6</br></br>
+image6
 
 
 <table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
@@ -146,24 +146,21 @@ image6</br></br>
 <tr>
 <td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt;">
 
-
-val cooccurrences = orders.map(order =>
+val cooccurrences = orders.map(order =><br>
   (
-    order._1,
-    order._2.toList.combinations(2).map(order_pair =>
+    order._1,<br>
+    order._2.toList.combinations(2).map(order_pair =><br>
         (
-            if (order_pair(0)._2 < order_pair(1)._2) (order_pair(0)._2, order_pair(1)._2) else (order_pair(1)._2, order_pair(0)._2),
+            if (order_pair(0)._2 < order_pair(1)._2) (order_pair(0)._2, order_pair(1)._2) else (order_pair(1)._2, order_pair(0)._2),<br>
             order_pair(0)._1 * order_pair(1)._1
         )
     )
   )
-)
-val combos = cooccurrences.flatMap(x => x._2).reduceByKey((a, b) => a + b)
-val mostCommon = combos.map(x => (x._2, x._1)).sortByKey(false).take(10)
-
+)<br>
+val combos = cooccurrences.flatMap(x => x._2).reduceByKey((a, b) => a + b)<br>
+val mostCommon = combos.map(x => (x._2, x._1)).sortByKey(false).take(10)<br>
+<br>
 println(mostCommon.deep.mkString("\n"))
-
-
 
 </td>
 
@@ -172,14 +169,7 @@ println(mostCommon.deep.mkString("\n"))
 
 
 
-
-
-
 * Note : You have to press "Enter" button at the end of command to execute.
-
-
-
-
 
 <p>
 To better understand this script, you could read through the comments which aim to explain 
@@ -207,24 +197,9 @@ arduous and time- consuming task. However, using Spark, and a few lines of scala
 you were able to produce a list of the items most frequently purchased together in very little time.
 </p>
 
-
-
-
 </p>
-
-
-
-
-
-
-
 
 </body>
 
 
-
-
-
 </html>
-
-
