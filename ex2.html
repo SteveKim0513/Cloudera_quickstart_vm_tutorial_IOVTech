@@ -1,169 +1,137 @@
-<!DOCTYPE html>
 <html>
+
+
 <head>
+
   <title>Tutorial Exercise 2</title>
+
 </head>
 
+
+
+
+
 <body>
-  <p><font face="±¼¸²" size="3"></font></p>
-  <p style="margin: 0cm 0cm 15pt;">
-  <b style="mso-bidi-font-weight: normal;">
-  <span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 15pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
 
-Tutorial Exercise 2
-</span></b></p>
+Tutorial Exercise 2</br></br>
 
+You'll use Hue. Hue is Graphical user interface for users of the cluster.
 
-<p><font face="±¼¸²" size="3"></font>
-<span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>
-
-You¡¯ll use Hue. <br>
-Hue is Graphical user interface for users of the cluster. </span></p>
-
-<p><br></p>
-<p>[image] ex2_1</p>
-<p><br></p><p></p>
+<p>
+[image] ex2_1 <br>
 
 
-<font face="±¼¸²" size="3"><p>
-<!--StartFragment--></p>
-<p class="1" style="line-height: 115%; margin-bottom: 0pt; mso-pagination: none; mso-padding-alt: 0.0pt 0.0pt 0.0pt 0.0pt;">
-<span lang="EN-US" style="color: rgb(0, 117, 200); letter-spacing: 0pt; font-family: ¸¼Àº °íµñ; font-size: 10pt; font-weight: normal; mso-ascii-font-family: Century Gothic; mso-font-width: 100%; mso-text-raise: 0.0pt;">
+<p>
+Let's start Hue!
+Click 'Fire Fox Icon'.
+</p>
 
-Note! <br>
-In our example we use Hive for DDL statements and Impala for querying. This fits the notion that Hive is better for flexible batch jobs (like ETL), but Impala is better for interactive querying, at scale.</span></p>
+[image]ex2_2<br><p>
 
-<p><br></p><p>&nbsp;</p></font>
-
-<p></p>
-<p style="margin: 0cm 0cm 10pt;">
-<span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-
-Let¡¯s start Hue! <br>
-Click ¡®Fire Fox Icon¡¯.
-</span>
-
-<p><font face="±¼¸²" size="3"><br></font></p>
-
-<p>[image] ex2_2</p>
-
-
-
-<font face="±¼¸²" size="3"><p><br></p>
-
-<p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-
-It¡¯s ¡®quickstart.cloudera¡¯ web page.<br>
+It¡¯s ¡®quickstart.cloudera¡¯ web page. <br>
 Click ¡®Hue¡¯. <br>
-Then Hue will be started.</span></p>
+Then Hue will be started.<br><br>
+
+[image]ex2_3<br><p>
+
+You'll use Hue to run some SQL queries against the data. <br>
+Hue provides a web-based interface for many of the tools in CDH.<br><br>
 
 
-<br>
-<p>[image] ex2_3</p><p><br></p>
+[image]ex2_4<br><p>
 
+In the QuickStart VM, the administrator username for Hue is 'cloudera' and the password is 'cloudera'.<p>
 
-<p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-font-kerning: 0pt;'>
+[image]ex2_5<br><p>
 
-You'll use Hue to run some SQL queries
-against the data. <br>
-Hue provides a web-based interface for many of the tools in CDH.</span></p></font>
-<p><br></p>
+Once you are inside of Hue, click of Query Editors, and open the Impala Query Editor. <p>
 
-<p>[image] ex2_4</p><p><br></p>
+[image]ex2_6<br><p>
 
-<p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'>
+You'll notice that the tables that we created in Hive are not available in Impala yet. <br>
+This is because we created them outside of Impala, and Impala does not constantly check for changes to the table metadata. <p>
 
-In the QuickStart VM, 
-the administrator username for Hue is 'cloudera' and the password is 'cloudera'.</span></p><br>
+[image]ex2_7<br><p>
 
-<p>[image] ex2_5</p><p><br></p>
+To get our tables to display, paste the following into the query editor and hit Execute.<p>
 
-<p><span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'>
-<font size="2"><span lang="EN-US" style='line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA;'>
+invalidate metadata <p>
 
-Once you are inside of Hue, click of Query Editors,
-and open the Impala Query Editor.</span></font>
-</span></p><br>
+[image]ex2_8<br><p>
 
-
-<p>[image] ex2_6</p><p><br></p>
-
-
-<span lang="EN-US" style='color: black; line-height: 115%; font-family: "Arial","sans-serif"; font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-font-kerning: 0pt;'><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-
-You'll notice that the tables that
-we created in Hive are not available in Impala yet. <br>
-This is because we created them
-outside of Impala, and Impala does not constantly check for changes to the
-table metadata.</font></p></span><br>
-
-
-<p>[image] ex2_7</p><p><br></p>
-
-
-<font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-<font face="Arial">
-
-To get our tables to display, paste the following into the query editor and hit Execute.
-
-</font></span></p>
-
-<p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial"><br></font></span></p><p><span lang="EN-US" style='color: rgb(255, 0, 0); font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'><font face="Arial">
-
-invalidate metadata</font></span></p><br>
-
-
-<p>[image] ex2_8</p><p><br></p>
-
-
-
-<p style="margin: 0cm 0cm 10pt;"><span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-bidi-font-family: Arial;'>
-
-"invalidate metadata" statement</span></p>
-
-<span lang="EN-US" style='color: rgb(255, 0, 0); line-height: 115%; font-family: "¹ÙÅÁÃ¼","serif"; font-size: 11pt; mso-ansi-language: EN-US; mso-fareast-language: KO; mso-bidi-language: AR-SA; mso-bidi-font-family: Arial;'>
-
-: Marks the metadata for one or all tables as stale.<br>
-Required after a table is created through the Hive shell, before the table is
-available for Impala queries.<br>
-The next time the current Impala node performs a
-query against a table whose metadata is invalidated, Impala reloads the
-associated metadata before the query proceeds.<br>
-This is a relatively expensive operation compared to the incremental metadata update done by the REFRESH
-statement, so in the common scenario of adding new data files to an existing
-table, prefer REFRESH rather than INVALIDATE METADATA.<br>
-If you are not familiar with the way Impala uses metadata and how it shares the same metastore database
-as Hive, see Overview of Impala Metadata and the Metastore for background information.</span></p></font>
-
-
-<font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-<font face="Arial">
+"invalidate metadata" statement
+: Marks the metadata for one or all tables as stale. Required after a table is created through the Hive shell, before the table is available for Impala queries. The next time the current Impala node performs a query against a table whose metadata is invalidated, Impala reloads the associated metadata before the query proceeds. This is a relatively expensive operation compared to the incremental metadata update done by the REFRESH statement, so in the common scenario of adding new data files to an existing table, prefer REFRESH rather than INVALIDATE METADATA. If you are not familiar with the way Impala uses metadata and how it shares the same metastore database as Hive, see Overview of Impala Metadata and the Metastore for background information.
+<p>
 
 Now, you click on the "Refresh Table List" icon.
+<p>
 
-</font></span></p><br>
+[image]ex2_9<br><p>
 
-<p>[image] ex2_9</p><p><br></p>
+You will see your new tables.<p>
 
+[image]ex2_10<br><p>
 
-<font face="±¼¸²" size="3"><p><br></p><p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-<font face="Arial">
+Copy and paste or type in the following standard SQL example queries for calculating total revenue per product and showing the top 10 revenue generating products : 
+<p>
 
-You will see your new tables.</span></font></p><br>
+-- Most popular product categories 
+select c.category_name, count(order_item_quantity) as count 
+from order_items oi 
+inner join products p on oi.order_item_product_id = p.product_id 
+inner join categories c on c.category_id = p.product_category_id 
+group by c.category_name 
+order by count desc 
+limit 10;
+<p>
 
-<p>[image] ex2_10</p><p><br></p>
+Hit Execute. <p>
 
-<font face="±¼¸²" size="3"><p><br></p>
-<p><span lang="EN-US" style='font-size: 11pt; mso-fareast-font-family: "¸¼Àº °íµñ"; mso-fareast-theme-font: minor-latin;'>
-<font face="Arial">
+[image]ex2_11<br><p>
 
-Copy and paste or type in the following standard
-SQL example queries for calculating total revenue per product and showing the top
- </span></font></p>
+You should see results of the following form :<p>
 
+[image]ex2_12<br><p>
 
+Clear out the previous query. <p>
 
+[image]ex2_13<br><p>
 
+Copy and paste or type in the following standard SQL example queries : <p>
+
+-- top 10 revenue generating products 
+select p.product_id, p.product_name, r.revenue 
+from products p inner join 
+(select oi.order_item_product_id, sum(cast(oi.order_item_subtotal as float)) as revenue 
+from order_items oi inner join orders o 
+on oi.order_item_order_id = o.order_id 
+where o.order_status <> 'CANCELED' 
+and o.order_status <> 'SUSPECTED_FRAUD' 
+group by order_item_product_id) r 
+on p.product_id = r.order_item_product_id 
+order by r.revenue desc 
+limit 10;
+<p>
+
+[image]ex2_14<br><p>
+
+You should see results similar to this : 
+<p>
+
+[image]ex2_15<br><p>
+If one of these steps fails, please reach out to our Cloudera Live Forum and get help. Otherwise continue.
+<p>
+
+CONCLUSION <br>
+Now you have learned how to query Hive tables using Impala and that you can use regular interfaces and tools (such as SQL) within a Hadoop environment as well. 
+The idea here being that you can do the same reports you usually do, but where the architecture of Hadoop vs traditional systems provides much larger scale and flexibility.
+<p>
 </body>
 
+
+
+
+
 </html>
+
+
