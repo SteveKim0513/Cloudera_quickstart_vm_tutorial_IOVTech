@@ -199,6 +199,180 @@ image
 Result : </span></p>
 
 
+<font face="Arial" size="5">
+
+<b>Tutorial Exercise 1</b> </font><br><br>
+
+<font face="Arial" size="3">
+
+Note that the schema and the data are stored in separate files. The schema is only applied when the data is queried, a technique called 'schema-on-read'. This gives you the flexibility to query the data with SQL while it's still in a format usable by other systems as well. Whereas a traditional database requires the schema to be defined before entering any data, we have already imported a lot of data and will only now specify how it's structure should be interpreted. 
+Apache Hive will need the schema files too, so let's copy them into HDFS where Hive can easily access them. 
+<p>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+[root@quickstart.cloudera ~] sudo -u hdfs hadoop fs -mkdir /user/examples <br>
+[root@quickstart.cloudera ~] sudo -u hdfs hadoop fs -chmod +rw /user/examples <br>
+[root@quickstart.cloudera ~] hadoop fs -copyFromLocal ~/*.asc /user/examples/ <br>
+
+</td>
+</tr></table>
+
+<br><br>
+
+
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 115pt;">
+[comments] <br><br>
+
+[root@quickstart.cloudera ~] ：csudo -u hdfs hadoop fs ：e-mkdir /user/examples <br>
+[root@quickstart.cloudera ~] sudo -u hdfs hadoop fs ：e-chmod +rw /user/examples <br>
+[root@quickstart.cloudera ~] hadoop fs -copyFromLocal ~/*.asc /user/examples/ <br>
+<p>
+：c "sudo" is to do something as a different user(typically as root, the "superuser").<br>
+：e "mkdir" means making directory. <br>
+：e "chmod" is used to change the permissions of files or directories. So as you input the command, you change the permission of "/user/examples" folder to add read permission(r) and write permission(w).</td>
+</tr></table>
+
+<p>
+
+
+
+Now that we have the data, we can prepare it to be queried. There are two tools for doing SQL-like queries in CDH: Hive and Impala. Hive works by translating SQL queries into MapReduce jobs, so it's best for large batch jobs and applying flexible transformations. Impala is significantly faster and is intended to have low enough latency for interactive queries and data exploration. Impala and Hive can share the metadata about these tables (and their query languages are similar), so we'll use Hive's shell to define these tables, similar to how you would have defined them in your relational database. Hive's query language will look very familiar if you know SQL, and they are intended to be as compatible as possible. There are differences however, as Hive and Impala's abilities introduce some new concepts. Launch the Hive shell and create the tables. 
+
+<p>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+
+hive>
+
+</td>
+</tr></table>
+
+<p>
+
+<b> Copy and paste the queries below, and hit enter.</b>
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 130.93pt;">
+CREATE EXTERNAL TABLE categories <br>
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' <br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat' <br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'<br>
+LOCATION 'hdfs:///user/hive/warehouse/categories'<br>
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_categories.avsc');<br>
+<br>
+CREATE EXTERNAL TABLE customers <br>
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' <br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat' <br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat' <br>
+LOCATION 'hdfs:///user/hive/warehouse/customers' <br>
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_customers.avsc'); <br>
+<br>
+CREATE EXTERNAL TABLE departments<br>
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'<br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'<br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'<br>
+LOCATION 'hdfs:///user/hive/warehouse/departments'<br>
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_departments.avsc');<br>
+<br>
+CREATE EXTERNAL TABLE orders<br>
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'<br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'<br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'<br>
+LOCATION 'hdfs:///user/hive/warehouse/orders'<br>
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_orders.avsc');<br>
+<br>
+CREATE EXTERNAL TABLE order_items<br>
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'<br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'<br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'<br>
+LOCATION 'hdfs:///user/hive/warehouse/order_items'<br>
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_order_items.avsc');<br> 
+<br>
+CREATE EXTERNAL TABLE products <br>
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' <br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat' <br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat' <br>
+LOCATION 'hdfs:///user/hive/warehouse/products' <br>
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_products.avsc');<br> </td>
+</tr></table>
+<br>
+
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 100pt;">
+
+
+
+[comments] <br><br>
+
+：cCREATE EXTERNAL TABLE categories<br>
+：eROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'<br>
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'<br>
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'<br>
+：eLOCATION 'hdfs:///user/hive/warehouse/categories'<br>
+：e TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_categories.avsc');<br>
+
+
+
+
+
+</td>
+</tr></table>
+
+
+
+<p>
+Now you should have the following tables created. <br>
+
+
+<br><br>
+<font face="Arial" size="3"></body>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+hive>show tables;
+
+</td>
+</tr></table>
+
+<br><br>
+
+Result : 
+<br>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+hive>exit;
+
+</td>
+</tr></table> <br>
+
+If one of these steps fails, please reach out to our Cloudera Live Forum and get help.
+<br><br>
+
+<b>CONCLUSION</b> 
+Now you have gone through the first basic steps to Sqoop structured data into HDFS, transform it into Avro file format (you can read about the benefits of Avro as a common format in Hadoop here), and create Hive tables ready for interactive SQL via Impala or batch query via Hive. 
 
 
 
