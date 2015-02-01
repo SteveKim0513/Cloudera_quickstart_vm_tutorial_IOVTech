@@ -314,27 +314,51 @@ TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop
 </tr></table>
 
 
-
-
 <table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
 <tr>
-<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 400pt;">
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+[comments]<Br>
 
 
+®Á
+CREATE EXTERNAL TABLE categories
+<br>
 
-[comments]
-
-®ÁCREATE EXTERNAL TABLE categories
-®ËROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+®Ë
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
 STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
-®ÈLOCATION 'hdfs:///user/hive/warehouse/categories'
-®Í TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_categories.avsc');
+
+<br>
+®È
+LOCATION 'hdfs:///user/hive/warehouse/categories'
+
+<br>
+®Í
+TBLPROPERTIES ('avro.schema.url'='hdfs://quickstart.cloudera/user/examples/sqoop_import_categories.avsc');
+
+
+
+<br>
 
 
 
 
-
+<br><br>
+®Á Make the table named °∞category°± When you are not using °∞external°±, a table created in the path that is arbitrarily specified by Hive. If you create table on the path you want, you can use °∞external°± command.<br>
+®Ë This means that using a library taken from the web.
+cf. SerDe
+  ? SerDe is a short name for "Serializer and Deserializer".
+  ? Hive uses SerDe (and FileFormat) interface for IO.
+  ? The interface hadles both serialization and deserialization and also interpreting the results of serialization as individual fields
+    for processing.
+  ? A SerDe allows Hive to read the data from a table, and write it back out to HDFS in any custom.
+  ? Anyone can write their own SerDe for their own data formats.
+  ? HDFS files --> InputFileFormat --> <key, value> --> Deserializer --> Row object
+  ? Row object --> Serializer --> <key, value> --> OutputFileFormat --> HDFS files<br>
+®È This table is created on this location in HDFS.<br>
+®Í You use the schema file which you copied previous step.
+<br>
 </td>
 </tr></table>
 
@@ -342,6 +366,39 @@ OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
 
 
 Now you should have the following tables created. <br>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+hive>show tables;
+
+</td>
+</tr></table>
+
+<br><br>
+
+Result : 
+<br>
+
+
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-image: none; border-collapse: collapse; mso-table-overlap: never;">
+<tr>
+<td valign="top" style="background: rgb(242, 242, 242); padding: 1.41pt 5.1pt; border: 0.28pt solid rgb(0, 0, 0); border-image: none; width: 600pt; height: 20pt;">
+
+hive>exit;
+
+</td>
+</tr></table> <br>
+
+If one of these steps fails, please reach out to our Cloudera Live Forum and get help.
+<br><br>
+
+<b>CONCLUSION</b> <br>
+Now you have gone through the first basic steps to Sqoop structured data into HDFS, transform it into Avro file format (you can read about the benefits of Avro as a common format in Hadoop here), and create Hive tables ready for interactive SQL via Impala or batch query via Hive. 
+
+
 
 
 <br><br>
