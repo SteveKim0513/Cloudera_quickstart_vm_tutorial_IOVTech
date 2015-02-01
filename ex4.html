@@ -1,0 +1,90 @@
+<html>
+
+<head>
+
+
+</head>
+
+
+
+
+
+<body>
+
+Tutorial Exercise 4</br></br>
+
+Relationship strength analytics using Spark
+
+<p>
+You come up with a great idea that it would be interesting for the marketing team which 
+products are most commonly purchased together. Perhaps there are optimizations to be made 
+in marketing campaigns to position components together that will generate a strong 
+lead pipeline? Perhaps they can use product correlation data to help up sales for the 
+lesser viewed products? Or recover revenue for the product that was on the top 10 viewed, 
+but not top 10 sold from last exercise?
+The tool in CDH best suited for quick analytics on object relationships is Apache Spark. 
+You can compose a Spark job to do this work and give you insight on product relationships.
+</p>
+
+coding</br>
+image</br>
+
+
+Note: After a few seconds, you should see the spark shell. If you do not, you may need to hit the enter key.</br></br>
+
+Once you have the scala> prompt, paste the following code, and hit enter.</br></br>
+
+coding</br>
+coding</br>
+coding</br>
+coding</br>
+coding</br>
+coding</br>
+
+
+<p>
+To better understand this script, you could read through the comments which aim to explain 
+what each block does and the basic process we're going through.</br></br>
+
+When we do a 'map', we specify a function that will take each record and output a modified record. This is useful 
+when we only need a couple of fields from each record or when we need the record to use a different field as the key: 
+we simply invoke map with a function that takes in the entire record, and returns a new 
+record with the fields and the key we want.</br></br>
+
+The 'reduce' operations - like 'join' and 'groupBy' - 
+will organize these records by their keys so we can group similar records together and then process 
+them as a group. For instance, we group every purchased item by which specific order it was in - 
+allowing us to determine all the combinations of products that were part of the same order.</br></br>
+
+You should see a result similar to the following:</br>
+
+image</br></br></br>
+
+CONCLUSION</br></br>
+
+<p>
+If it weren't for Spark, doing cooccurrence analysis like this would be an extremely 
+arduous and time- consuming task. However, using Spark, and a few lines of scala, 
+you were able to produce a list of the items most frequently purchased together in very little time.
+</p>
+
+
+
+
+</p>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+</html>
+
