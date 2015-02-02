@@ -3,6 +3,7 @@
 
 
 
+
   
 
 <style>
@@ -30,9 +31,9 @@ The tool in CDH best suited for quick analytics on object relationships is Apach
 You can compose a Spark job to do this work and give you insight on product relationships.
 </font></p>
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 904px; height: 20px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt; text-align: center;" valign="top">
 
 spark-shell --jars /usr/lib/avro/avro-mapred.jar \
 --conf spark.serializer=org.apache.spark.serializer.KryoSerializer
@@ -50,9 +51,9 @@ Once you have the scala&gt; prompt, paste the following code, and hit enter.</fo
 
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 899px; height: 40px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
 
 // First we're going to import the classes we need and open some of the files<br>
 // we imported from our relational database into Hadoop with Sqoop
@@ -60,15 +61,15 @@ Once you have the scala&gt; prompt, paste the following code, and hit enter.</fo
 </tr></tbody></table>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 898px; height: 274px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
 
 import org.apache.avro.generic.GenericRecord<br>
 import org.apache.avro.mapred.{AvroInputFormat, AvroWrapper}<br>
 import org.apache.hadoop.io.NullWritable<br>
-<br><br>
-val warehouse = "hdfs://quickstart.cloudera/user/hive/warehouse/"
+<br><br><span style="color: red;">
+val</span> warehouse = "hdfs://quickstart.cloudera/user/hive/warehouse/"
 <br><br>
 val order_items_path = warehouse + "order_items"<br>
 val order_items = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInputFormat[GenericRecord]](order_items_path)<br>
@@ -86,9 +87,9 @@ val products = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInput
 <p style="text-align: center;"><font face="Arial" size="3"><img title="ex2_1.PNG" class="__se_object" id="se_object_142278740760595790" style="border: 1px solid rgb(0, 0, 0); width: 740px; height: 506px;" src="http://postfiles13.naver.net/20150201_236/kjh870513_14227946970715EJEV_JPEG/ex4_5.jpg?type=w3" rwidth="740" rheight="506" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" sqeid="QE_142278740965319799" align="" height="506" width="740"><br></font></p>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 896px; height: 36px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
 
 
 // Next, we extract the fields from order_items and products that we care about<br>
@@ -97,9 +98,9 @@ val products = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInput
 </tr></tbody></table>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 896px; height: 244px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
 
 
 val orders = order_items.map { x =&gt; (<br>
@@ -116,7 +117,7 @@ val orders = order_items.map { x =&gt; (<br>
         scala.Int.unbox(x._2._1._2), // quantity<br>
         x._2._2.toString // product_name<br>
     )<br>
-)).groupByKey()<br>
+)).<span style="color: red;">groupByKey()</span><br>
 </td>
 </tr></tbody></table>
 
@@ -126,9 +127,9 @@ val orders = order_items.map { x =&gt; (<br>
 
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 896px; height: 36px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
 
 
 // Finally, we tally how many times each combination of products appears<br>
@@ -139,9 +140,9 @@ val orders = order_items.map { x =&gt; (<br>
 </tr></tbody></table>
 
 
-<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse;">
+<table style="border: 0.28pt solid rgb(0, 0, 0); border-collapse: collapse; width: 897px; height: 148px;">
 <tbody><tr>
-<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
+<td style="border: 0.28pt solid rgb(0, 0, 0); padding: 1.41pt 5.1pt; background: rgb(242, 242, 242) none repeat scroll 0% 50%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 600pt;" valign="top">
 
 val cooccurrences = orders.map(order =&gt;<br>
   (
@@ -154,8 +155,8 @@ order_pair(1)._2) else (order_pair(1)._2, order_pair(0)._2),<br>
     )
   )
 )<br>
-val combos = cooccurrences.flatMap(x =&gt; x._2).reduceByKey((a, b) =&gt; a + b)<br>
-val mostCommon = combos.map(x =&gt; (x._2, x._1)).sortByKey(false).take(10)<br>
+val combos = cooccurrences.<span style="color: red;">flatMap</span>(x =&gt; x._2).<span style="color: red;">reduceByKey</span>((a, b) =&gt; a + b)<br>
+val mostCommon = combos.map(x =&gt; (x._2, x._1)).<span style="color: red;">sortByKey</span>(false).take(10)<br>
 <br>
 println(mostCommon.deep.mkString("\n"))
 
