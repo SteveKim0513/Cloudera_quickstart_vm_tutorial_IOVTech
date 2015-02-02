@@ -79,8 +79,12 @@ val products = sc.hadoopFile[AvroWrapper[GenericRecord], NullWritable, AvroInput
 </td>
 </tr></tbody></table>
 
+<br>
+<font color = "red" size= "5">val </font>- val keywords is variable definitions that are fundamental to the scala.<br> Varialbles defined by val can¡¯t be reassigned to a different object. It is like final in Java and const in C.
+<br><br>Then, Make each of the variables with the 'val' keyword.
+</font>
 
-</font><p style="text-align: center;"><font face="Arial" size="3"><img title="ex2_1.PNG" class="__se_object" id="se_object_142278740760595790" style="border: 1px solid rgb(0, 0, 0); width: 740px; height: 506px;" src="http://postfiles15.naver.net/20150201_94/kjh870513_14227946964978mYHf_PNG/ex4_3.png?type=w3" rwidth="740" rheight="506" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" sqeid="QE_142278740965319799" align="" height="506" width="740"><br></font></p>
+<p style="text-align: center;"><font face="Arial" size="3"><img title="ex2_1.PNG" class="__se_object" id="se_object_142278740760595790" style="border: 1px solid rgb(0, 0, 0); width: 740px; height: 506px;" src="http://postfiles15.naver.net/20150201_94/kjh870513_14227946964978mYHf_PNG/ex4_3.png?type=w3" rwidth="740" rheight="506" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" sqeid="QE_142278740965319799" align="" height="506" width="740"><br></font></p>
 
 <p style="text-align: center;"><font face="Arial" size="3"><img title="ex2_1.PNG" class="__se_object" id="se_object_142278740760595790" style="border: 1px solid rgb(0, 0, 0); width: 740px; height: 506px;" src="http://postfiles15.naver.net/20150201_174/kjh870513_1422794696703KDJXq_PNG/ex4_4.png?type=w3" rwidth="740" rheight="506" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" sqeid="QE_142278740965319799" align="" height="506" width="740"><br></font></p>
 
@@ -121,9 +125,14 @@ val orders = order_items.map { x =&gt; (<br>
 </td>
 </tr></tbody></table>
 
-<font face="Arial" size="3"><br><br>
+<font face="Arial" size="3"><br>
 
-</font><p style="text-align: center;"><font face="Arial" size="3"><img title="ex2_1.PNG" class="__se_object" id="se_object_142278740760595790" style="border: 1px solid rgb(0, 0, 0); width: 740px; height: 506px;" src="http://postfiles4.naver.net/20150201_115/kjh870513_1422794697292GS8fx_PNG/ex4_6.png?type=w3" rwidth="740" rheight="506" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" sqeid="QE_142278740965319799" align="" height="506" width="740"><br></font></p>
+</font>
+<br>
+<font face="Arial" size="3">
+<font color = "red" size = "5">groupBykey</font> is When called on a dataset of (K, V) pairs, returns a dataset of (K, Iterable<V>) pairs.
+</font><br><br>
+<p style="text-align: center;"><font face="Arial" size="3"><img title="ex2_1.PNG" class="__se_object" id="se_object_142278740760595790" style="border: 1px solid rgb(0, 0, 0); width: 740px; height: 506px;" src="http://postfiles4.naver.net/20150201_115/kjh870513_1422794697292GS8fx_PNG/ex4_6.png?type=w3" rwidth="740" rheight="506" jsonvalue="%7B%7D" imgqe="true" s_subtype="photo" s_type="attachment" sqeid="QE_142278740965319799" align="" height="506" width="740"><br></font></p>
 
 
 
@@ -162,14 +171,21 @@ println(mostCommon.deep.mkString("\n"))
 
 </td>
 </tr></tbody></table>
-<p>
-<font face="Arial" size="3"><br>
+<br><br>
+<p><font face="Arial" size="3">
+<font color = "red" size = "5">Flatmap</font> is the combination of map with flatten<br><br>
 
+<font color = "red" size = "5">ReduceBykey</font> is When called on a dataset of (K, V) pairs, returns a dataset of (K, V) pairs where the values for each key are aggregated using the given reduce function func, which must be of type (V,V) => V.<br><br>
 
+<font color = "red" size = "5">SortBykey</font> is When called on a dataset of (K, V) pairs where K implements Ordered, returns a dataset of (K, V) pairs sorted by keys in ascending or descending order, as specified in the boolean ascending argument. 
+</font>
+<br>
+
+<font face="Arial" size="3"><br><br>
 * Note : You have to press "Enter" button at the end of command to execute.
 
-</font></p><p>
-<font face="Arial" size="3">To better understand this script, you could read through the comments which aim to explain 
+</p><p>
+To better understand this script, you could read through the comments which aim to explain 
 what each block does and the basic process we're going through.<br><br>
 
 When we do a 'map', we specify a function that will take each record and output a modified record. This is useful 
