@@ -7,3 +7,9 @@
 
 If you use linux. Input the command on your terminal.
 > git clone https://github.com/SteveKim0513/Cloudera_quickstart_vm_tutorial_IOVTech.git
+
+Then the tutorial file will download.
+
+Now, you can open the html file on firefox.
+
+> firefox ./Cloudera_quickstart_vm_tutorial_IOVTech/Tutorial_IOVTech/Main_page.html
